@@ -3,10 +3,10 @@
 ## Membres du groupe
 
 Liste des membres du projet :
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
-- Prenom Nom adresse@etu.univ-lorraine
+- Ange Holvec adresse@etu.univ-lorraine
+- Ugo Righetti adresse@etu.univ-lorraine
+- Hugo Thirion adresse@etu.univ-lorraine
+- Jules Giorgia adresse@etu.univ-lorraine
 
 Liste des adresses mail
 adresse@etu.univ-lorraine
