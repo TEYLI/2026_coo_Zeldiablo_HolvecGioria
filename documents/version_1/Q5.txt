@@ -1,0 +1,14 @@
+@startuml
+class Jeu
+class Labyrinthe
+class Case
+class Aventurier
+class Commande
+
+Jeu "1" --> "1" Labyrinthe : possède >
+Jeu "1" -- "1" Aventurier : contrôle >
+Labyrinthe "1" *-- "*" Case : contient >
+Aventurier "1" -- "1" Case : se déplace sur >
+Commande ..> Jeu : transmet à >
+
+@enduml

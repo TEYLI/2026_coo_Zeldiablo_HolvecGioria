@@ -1,20 +1,18 @@
 # Fonctionnalités prévues version 1
 
-- fonctionnalité 1 : nom
-  - descriptif texte : [...]
+- fonctionnalité 1 : Mouvement du personnage
+  - descriptif texte : Le joueur sélectionne quelle direction et le personnage bouge en fonction de la direction
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
-  - responsables : [...]
+    - critère 1 : Le mouvement s'effectue
+    - critère 2 : le personnage ne bouge pas lors d'une collision
+  - responsables : Ange
 
-- fonctionnalité 2 : nom
-  - descriptif texte : [...]
+- fonctionnalité 2 : Initialisation du jeu 
+  - descriptif texte : Le labyrinthe et le personnage doit être généré correctement
   - critères de validation :
-    - critère 1 [...]
-    - critère 2 [...]
-  - responsables : [...]
-
-[....]
+    - critère 1 : La position du personnage est valide
+    - critère 2	: le labyrinthe est généré correctement
+  - responsables : Ugo
 
 # Bilan
 
