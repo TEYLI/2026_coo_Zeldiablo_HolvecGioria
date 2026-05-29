@@ -1,9 +1,10 @@
-/**public class JeuPerso {
+import moteurJeu.Commande;
+public class JeuPerso {
     //ATTRIBUTS
     private Personnage perso;
 
     //CONSTRUCTEUR
-    public jeuPerso(){
+    public JeuPerso(){
         this.perso = new Personnage();
     }
 

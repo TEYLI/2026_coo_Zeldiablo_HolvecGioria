@@ -4,22 +4,22 @@ public class Personnage {
     private int x;
     private int y;
 
-    public Personnage(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Personnage() {
+        this.x = 0;
+        this.y = 0;
     }
 
-    public int deplacer(Commande commande){
-        if (commande.gauche){
+    public void deplacer(Commande commande) {
+        if (commande.gauche) {
             this.x--;
         }
-        if (commande.droite){
+        if (commande.droite) {
             this.x++;
         }
-        if (commande.haut){
+        if (commande.haut) {
             this.y++;
         }
-        if (commande.bas){
+        if (commande.bas) {
             this.y--;
         }
     }
