@@ -1,0 +1,79 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface Jeu {
+  + evoluer(commandeUser : Commande) : void
+  + etreFini() : boolean
+}
+
+interface DessinJeu {
+  + dessiner(image : BufferedImage) : void
+}
+
+class Commande {
+  + gauche : boolean
+  + droite : boolean
+  + haut : boolean
+  + bas : boolean
+}
+
+class MoteurGraphique {
+  - jeu : Jeu
+  - dessin : DessinJeu
+  + MoteurGraphique(pJeu : Jeu, pAffiche : DessinJeu)
+  + lancerJeu(width : int, height : int) : void
+}
+
+class JeuZeldiablo {
+  - labyrinthe : Labyrinthe
+  - heros : Heros
+  + JeuZeldiablo()
+  + evoluer(c : Commande) : void
+  + etreFini() : boolean
+  + getLabyrinthe() : Labyrinthe
+  + getHeros() : Heros
+}
+
+class DessinZeldiablo {
+  - {static} TAILLE_CASE : int = 40
+  - jeu : JeuZeldiablo
+  + DessinZeldiablo(jeu : JeuZeldiablo)
+  + dessiner(image : BufferedImage) : void
+}
+
+class Heros {
+  - x : int
+  - y : int
+  + Heros(x : int, y : int)
+  + deplacer(commande : Commande, labyrinthe : Labyrinthe) : void
+  + getX() : int
+  + getY() : int
+}
+
+class Labyrinthe {
+  - grille : Case[][]
+  - largeur : int
+  - hauteur : int
+  + Labyrinthe()
+  + estTraversable(x : int, y : int) : boolean
+  + getLargeur() : int
+  + getHauteur() : int
+}
+
+class Case {
+  - estMur : boolean
+  + Case(estMur : boolean)
+  + estTraversable() : boolean
+}
+
+MoteurGraphique --> Jeu
+MoteurGraphique --> DessinJeu
+
+JeuZeldiablo ..|> Jeu
+DessinZeldiablo ..|> DessinJeu
+
+JeuZeldiablo "1" *-- "1" Heros
+JeuZeldiablo "1" *-- "1" Labyrinthe
+Labyrinthe "1" *-- "1..*" Case
+
+DessinZeldiablo --> JeuZeldiablo
