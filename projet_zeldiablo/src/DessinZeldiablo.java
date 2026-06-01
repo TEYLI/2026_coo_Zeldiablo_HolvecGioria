@@ -3,16 +3,32 @@ import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * Classe DessinZeldiablo permet de représenter le jeu en général
+ */
 public class DessinZeldiablo implements DessinJeu {
+    //Attribut
     private JeuZeldiablo jeu;
     private static final int TAILLE_CASE = 40;
 
+    //Constructeur
+    /**
+     * Constructeur a un parametre
+     * @param jeu
+     */
     public DessinZeldiablo(JeuZeldiablo jeu) {
         this.jeu = jeu;
     }
 
+    //Methodes
+    /**
+     * Methode dessiner permet d'initialiser le dessin voulu
+     * @param image
+     *            image sur laquelle dessiner
+     */
     @Override
     public void dessiner(BufferedImage image) {
+        //initialisation de l'image
         Graphics g = image.getGraphics();
 
         Labyrinthe laby = jeu.getLabyrinthe();
@@ -31,6 +47,7 @@ public class DessinZeldiablo implements DessinJeu {
             }
         }
 
+        //Heros
         Heros heros = jeu.getHeros();
         g.setColor(Color.BLUE);
         int pixelX = heros.getX() * TAILLE_CASE;

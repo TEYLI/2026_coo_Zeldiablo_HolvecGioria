@@ -1,8 +1,17 @@
+/**
+ * Classe Labyrinthe permet de représenter le labyrinthe
+ */
 public class Labyrinthe {
+    //Attributs
     private Case[][] grille;
     private int largeur;
     private int hauteur;
 
+    //Constructeur
+
+    /**
+     *  Constructeur par default
+     */
     public Labyrinthe() {
         this.largeur = 10;
         this.hauteur = 10;
@@ -22,7 +31,10 @@ public class Labyrinthe {
     }
 
     /**
-     * Vérifie si une position donnée est accessible (dans la grille et n'est pas un mur)
+     * Methode estTraversable qui permet de savoir si une case a une coordonnee est traversable
+     * @param x coordonee x
+     * @param y coordonnee y
+     * @return true si c traversable
      */
     public boolean estTraversable(int x, int y) {
         if (x < 0 || x >= largeur || y < 0 || y >= hauteur) {
@@ -31,6 +43,7 @@ public class Labyrinthe {
         return grille[x][y].estTraversable();
     }
 
+    //methodes getter
     public int getLargeur() {
         return largeur;
     }

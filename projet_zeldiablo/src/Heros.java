@@ -1,14 +1,32 @@
 import moteurJeu.Commande;
 
+/**
+ * Classe Heros permet de représenter le personage de Zeldiablo
+ */
 public class Heros {
+    //Attributs
     private int x;
     private int y;
 
+    //Constructeur
+
+    /**
+     * Constructeur a 2 paramettres permet d'initialiser
+     * @param x le x possition
+     * @param y y position
+     */
     public Heros(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    //Methodes
+
+    /**
+     * Methode deplacer qui permet de deplacer le Hero (A metre dans l'interface)
+     * @param commande commande faite sur clavier
+     * @param labyrinthe sur quel labyrinthe ??
+     */
     public void deplacer(Commande commande, Labyrinthe labyrinthe) {
         int futurX = this.x;
         int futurY = this.y;
@@ -24,6 +42,7 @@ public class Heros {
         }
     }
 
+    //Methode getter
     public int getX() { return x; }
     public int getY() { return y; }
 }
