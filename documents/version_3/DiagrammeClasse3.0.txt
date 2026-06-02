@@ -1,5 +1,4 @@
 @startuml
-skinparam classAttributeIconSize 0
 
 interface Jeu {
   + evoluer(commandeUser : Commande) : void
@@ -25,8 +24,6 @@ class MoteurGraphique {
 }
 
 class JeuZeldiablo {
-  - labyrinthe : Labyrinthe
-  - p : Personnage
   + JeuZeldiablo()
   + evoluer(c : Commande) : void
   + etreFini() : boolean
@@ -52,6 +49,7 @@ class Monstre {
   + Monstre(x : int, y : int)
   + getX() : int
   + getY() : int
+  + deplacer(Labyrinthe labyrinthe) : void
 }
 
 
@@ -65,7 +63,6 @@ class Heros {
 }
 
 class Labyrinthe {
-  - grille : Case[][]
   - largeur : int
   - hauteur : int
   + Labyrinthe()
@@ -80,6 +77,7 @@ class Case {
   + estTraversable() : boolean
 }
 
+
 MoteurGraphique --> Jeu
 MoteurGraphique --> DessinJeu
 
@@ -89,8 +87,11 @@ Monstre ..|> Personnage
 JeuZeldiablo ..|> Jeu
 DessinZeldiablo ..|> DessinJeu
 
-JeuZeldiablo "1" *-- "1" Personnage
-JeuZeldiablo "1" *-- "1" Labyrinthe
-Labyrinthe "1" *-- "1..*" Case
+JeuZeldiablo "1" <-- "1..*" Personnage : - p : Personnage
+JeuZeldiablo "1" <-- "1" Labyrinthe : - Labyrinthe : Labyrinthe
+Labyrinthe "1" <-- "1..*" Case : - grille : Case[][]
+
+Commande <.. Heros 
+Commande <.. JeuZeldiablo
 
 DessinZeldiablo --> JeuZeldiablo
