@@ -1,5 +1,5 @@
 /**
- * Classe Case qui represente une case et sont "Etat"
+ * Classe Case qui represente une case et son "Etat"
  */
 public class Case {
     //Attributs
@@ -7,7 +7,7 @@ public class Case {
 
     //Constructeur
     /**
-     * Constructeur a un parametre qui initialise une case, true en pparam si il est mur
+     * Constructeur a un parametre qui initialise une case, true en param si mur
      * @param estMur true si mur
      */
     public Case(boolean estMur) {

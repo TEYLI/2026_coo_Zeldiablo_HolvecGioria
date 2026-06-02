@@ -13,7 +13,7 @@ public class Monstre implements Personnage {
     //Constructeur
 
     /**
-     * Constructeur a 2 paramettres permet d'initialiser
+     * Constructeur a 2 paramettres permet d'initialiser le monstre
      * @param x le x possition
      * @param y y position
      */

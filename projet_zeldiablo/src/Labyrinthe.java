@@ -34,7 +34,7 @@ public class Labyrinthe {
      * Methode estTraversable qui permet de savoir si une case a une coordonnee est traversable
      * @param x coordonee x
      * @param y coordonnee y
-     * @return true si c traversable
+     * @return true si traversable
      */
     public boolean estTraversable(int x, int y) {
         if (x < 0 || x >= largeur || y < 0 || y >= hauteur) {

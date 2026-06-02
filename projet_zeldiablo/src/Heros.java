@@ -13,7 +13,7 @@ public class Heros implements Personnage {
     //Constructeur
 
     /**
-     * Constructeur a 2 paramettres permet d'initialiser
+     * Constructeur a 2 paramettres permet d'initialiser le heros
      * @param x le x possition
      * @param y y position
      */
@@ -25,7 +25,7 @@ public class Heros implements Personnage {
     //Methodes
 
     /**
-     * Methode deplacer qui permet de deplacer le Hero (A metre dans l'interface)
+     * Methode deplacer qui permet de deplacer le Hero
      * @param commande commande faite sur clavier
      * @param labyrinthe sur quel labyrinthe ??
      * @param personnages la listes des personnage
@@ -43,7 +43,6 @@ public class Heros implements Personnage {
             boolean caseOccupee = false;
             for (int i = 0; i < personnages.size(); i++) {
                 Personnage p = personnages.get(i);
-                // On s'assure de ne pas se comparer à soi-même et on cherche une collision
                 if (p != this && p.getX() == futurX && p.getY() == futurY) {
                     caseOccupee = true;
                     break;

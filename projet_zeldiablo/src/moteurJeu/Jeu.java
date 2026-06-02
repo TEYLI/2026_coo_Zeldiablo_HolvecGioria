@@ -1,7 +1,7 @@
 package moteurJeu;
 
 /**
- * represente un jeu un jeu est caracterise par la methode evoluer a redefinir
+ * represente un jeu, un jeu est caracterise par la methode evoluer a redefinir
  * 
  * @author Graou
  *

@@ -14,11 +14,12 @@ class Commande {
   + droite : boolean
   + haut : boolean
   + bas : boolean
+  + Commande()
+  + Commande(Commande commandeACopier)
 }
 
 class MoteurGraphique {
-  - jeu : Jeu
-  - dessin : DessinJeu
+  - gui : InterfaceGraphique
   + MoteurGraphique(pJeu : Jeu, pAffiche : DessinJeu)
   + lancerJeu(width : int, height : int) : void
 }
@@ -33,7 +34,6 @@ class JeuZeldiablo {
 
 class DessinZeldiablo {
   - {static} TAILLE_CASE : int = 40
-  - jeu : JeuZeldiablo
   + DessinZeldiablo(jeu : JeuZeldiablo)
   + dessiner(image : BufferedImage) : void
 }
@@ -49,7 +49,7 @@ class Monstre {
   + Monstre(x : int, y : int)
   + getX() : int
   + getY() : int
-  + deplacer(Labyrinthe labyrinthe) : void
+  + deplacer(Labyrinthe labyrinthe, List<Personnage> personnages) : void
 }
 
 
@@ -57,7 +57,7 @@ class Heros {
   - x : int
   - y : int
   + Heros(x : int, y : int)
-  + deplacer(commande : Commande, labyrinthe : Labyrinthe) : void
+  + deplacer(commande : Commande, labyrinthe : Labyrinthe, List<Personnage> personnages) : void
   + getX() : int
   + getY() : int
 }
@@ -78,20 +78,18 @@ class Case {
 }
 
 
-MoteurGraphique --> Jeu
-MoteurGraphique --> DessinJeu
+MoteurGraphique "1" --> "1" Jeu : - jeu : Jeu
+MoteurGraphique "1" -up-> "1" DessinJeu : - dessin : DessinJeu
 
 Heros ..|> Personnage
-Monstre ..|> Personnage
+Monstre .up.|> Personnage
 
 JeuZeldiablo ..|> Jeu
-DessinZeldiablo ..|> DessinJeu
+DessinZeldiablo .up.|> DessinJeu
 
-JeuZeldiablo "1" <-- "1..*" Personnage : - p : Personnage
-JeuZeldiablo "1" <-- "1" Labyrinthe : - Labyrinthe : Labyrinthe
-Labyrinthe "1" <-- "1..*" Case : - grille : Case[][]
+JeuZeldiablo "1" --> "1..*" Personnage : - p : Personnage
+JeuZeldiablo "1" -right-> "1" Labyrinthe : - Labyrinthe : Labyrinthe
+Labyrinthe "1" -right-> "1..*" Case : - grille : Case[][]
 
-Commande <.. Heros 
-Commande <.. JeuZeldiablo
-
-DessinZeldiablo --> JeuZeldiablo
+DessinZeldiablo "1" --> "1" JeuZeldiablo : - jeu : JeuZeldiablo
+JeuZeldiablo "1" --> "1" Heros : - heros : Heros

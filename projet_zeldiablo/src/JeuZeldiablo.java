@@ -33,7 +33,7 @@ public class JeuZeldiablo implements Jeu {
     //Methodes
 
     /**
-     * Methode spawn monstre qui faire apparaitre des monstre a une position valide
+     * Methode spawn monstre qui fait apparaitre des monstre a une position valide
      * @param x le x du spawn
      * @param y le y du spawn
      */
