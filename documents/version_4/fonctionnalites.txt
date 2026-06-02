@@ -1,31 +1,27 @@
 # Fonctionnalités prévues version 4
 
-- fonctionnalité 1 : 
-  - descriptif texte : 
+- fonctionnalité 1 (personnalisé) : Nouveau Labyrinthe aleatoire
+  - descriptif texte : Labryrinthe plus grand ajout de murs a l'interieur du labyrinthe pour rendre effectif le monstre fantome. Les murs au millieu sont généré aléatoirement.
   - critères de validation :
-    - critère 1 
-    - critère 2
-    - critère 3  
-    - critère 4  
-    - critère 5  
-  - responsables : 
+    - critère 1 les murs ne sont pas généré sur les personnages : monstres, héro
+    - critère 2 les murs ne sont jamais exactement au même endroit
+    - critère 3 il faut obligatoirement des murs sur les cotés 
+  - responsables : Jules
 	- 
 
 
 
-- fonctionnalité 2 : 
-  - descriptif texte : 
+- fonctionnalité 2 : Fantômes
+  - descriptif texte : Le labyrinthe dispose d'un nouveau type de monstre : les fantômes.
   - critères de validation :
-    - critère 1 
-    - critère 2 
-    - critère 3 
-  - responsables : 
+    - critère 1 Les fantômes peuvent traverser des murs mais pas les autres personnages (les autres monstres ou le héros)
+    - critère 2 Les autres monstres continuent à être bloqués par des murs.
+  - responsables : Ange
 	- 
 	
 
 # Bilan
 
-Les diagramme de sequences on était terminé. Et de classe mis a jours.
 - Quelles fonctionnalités est validée ?
 
 
