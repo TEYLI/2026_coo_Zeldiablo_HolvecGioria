@@ -11,8 +11,8 @@
 
 
 
-- fonctionnalité 2 : Fantômes
-  - descriptif texte : Le labyrinthe dispose d'un nouveau type de monstre : les fantômes.
+- fonctionnalité 2 : Fantômes , Ogre (personnalisé)
+  - descriptif texte : Le labyrinthe dispose d'un nouveau type de monstre : les fantômes. Les ogres sont juste des monstres.
   - critères de validation :
     - critère 1 Les fantômes peuvent traverser des murs mais pas les autres personnages (les autres monstres ou le héros)
     - critère 2 Les autres monstres continuent à être bloqués par des murs.

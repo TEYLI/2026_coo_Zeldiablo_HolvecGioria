@@ -5,25 +5,14 @@ import java.util.List;
 /**
  * Classe Heros permet de représenter un personage de Zeldiablo
  */
-public class Heros implements Personnage {
-    //Attributs
-    private int x;
-    private int y;
-
+public class Heros extends Personnage {
     //Constructeur
-
-    /**
-     * Constructeur a 2 paramettres permet d'initialiser le heros
-     * @param x le x possition
-     * @param y y position
-     */
     public Heros(int x, int y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
     }
 
-    //Methodes
 
+    //Methodes
     /**
      * Methode deplacer qui permet de deplacer le Hero
      * @param commande commande faite sur clavier

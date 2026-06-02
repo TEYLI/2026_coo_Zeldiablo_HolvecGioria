@@ -5,24 +5,18 @@ import java.util.List;
 /**
  * Classe Monstre permet de représenter un personage de Zeldiablo
  */
-public class Monstre implements Personnage {
-    //Attributs
-    private int x;
-    private int y;
+public abstract class Monstre extends Personnage {
 
     //Constructeur
-
     /**
      * Constructeur a 2 paramettres permet d'initialiser le monstre
      * @param x le x possition
      * @param y y position
      */
-    public Monstre(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
     //Methodes
+    public Monstre(int x, int y) {
+        super(x, y);
+    }
 
     /**
      * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire

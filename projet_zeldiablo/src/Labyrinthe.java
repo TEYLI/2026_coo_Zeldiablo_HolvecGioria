@@ -13,8 +13,8 @@ public class Labyrinthe {
      *  Constructeur par default
      */
     public Labyrinthe() {
-        this.largeur = 10;
-        this.hauteur = 10;
+        this.largeur = 20;
+        this.hauteur = 20;
         this.grille = new Case[largeur][hauteur];
 
         // Initialisation de l'arène
