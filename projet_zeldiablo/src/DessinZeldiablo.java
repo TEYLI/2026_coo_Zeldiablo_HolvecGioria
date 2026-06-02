@@ -12,8 +12,10 @@ public class DessinZeldiablo implements DessinJeu {
     private static final int TAILLE_CASE = 40;
 
     //Constructeur
+
     /**
      * Constructeur a un parametre
+     *
      * @param jeu
      */
     public DessinZeldiablo(JeuZeldiablo jeu) {
@@ -21,10 +23,11 @@ public class DessinZeldiablo implements DessinJeu {
     }
 
     //Methodes
+
     /**
      * Methode dessiner permet d'initialiser le dessin voulu
-     * @param image
-     *            image sur laquelle dessiner
+     *
+     * @param image image sur laquelle dessiner
      */
     @Override
     public void dessiner(BufferedImage image) {
@@ -48,12 +51,17 @@ public class DessinZeldiablo implements DessinJeu {
         }
 
         //Heros
-        Heros heros = jeu.getHeros();
-        g.setColor(Color.BLUE);
-        int pixelX = heros.getX() * TAILLE_CASE;
-        int pixelY = heros.getY() * TAILLE_CASE;
-        g.fillOval(pixelX, pixelY, TAILLE_CASE, TAILLE_CASE);
+        for (Personnage p : jeu.getPersonnages()) {
+            int pixelX = p.getX() * TAILLE_CASE;
+            int pixelY = p.getY() * TAILLE_CASE;
+            if (p instanceof Heros) {
+                g.setColor(Color.BLUE);
+            } else if (p instanceof Monstre) {
+                g.setColor(Color.RED);
+            }
+            g.fillOval(pixelX, pixelY, TAILLE_CASE, TAILLE_CASE);
 
+        }
         g.dispose();
     }
 }
