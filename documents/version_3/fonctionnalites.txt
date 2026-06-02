@@ -9,9 +9,9 @@
     - critère 4  Les monstres doivent apparaitre dans l'interface graphique sous la forme d'un cercle rouge.
     - critère 5  Les monstres ne se déplacent pas (mais attaquent éventuellement le héros s'il passe à proximité - cf taches attaque dans les parties suivantes).
   - responsables : Ange : 
-	- Classe Personnage 
-	- Methode SpawnMonstre()
-	- Complete methode dessiner()
+	- Classe Personnage : Ange
+	- Methode SpawnMonstre() : Ange
+	- Complete methode dessiner() : Ange
 
 
 
@@ -21,9 +21,10 @@
     - critère 1 La collision fonctionne dans les 4 directions.
     - critère 2 Si la case est vide, le personnage avance.
     - critère 3 Le monstre se déplace à chaque fois après le joueur.
-  - responsables : Jules Ange
+  - responsables : Jules , Ange
 	- classe Monstre : Jules
 	- modif methode deplacer() dans Hero : Ange
+	- testMonstre() : Jules
 	
 
 - fonctionnalité 3 : Déplacement aléatoire des monstres
@@ -35,12 +36,16 @@ fantômes)..
     - critère 3 Deux monstres ou un monstre et un joueur ne peuvent pas se trouver sur la même case (Si la tache Collision entre monstre est fonctionnelle).
     - critère 4 A chaque évolution, tous les monstres tentent de se déplacer
     - critère 5 L'interface graphique se met à jour en fonction des déplacements des Monstres.
-  - responsables : Jules
-	- methode Deplacer() dans monstre
+  - responsables : Jules , Ange
+	- Deplacer() dans Monstre : Jules
+	- Evoluer() : Jules
+	- estCaseVideDePersonnage() : Ange
+	- testMonstre() : Jules
 
 
 # Bilan
 
-Les diagramme de sequences on était terminé representant 
+Les diagramme de sequences on était terminé. Et de classe mis a jours.
 - Quelles fonctionnalités est validée ?
+Les fonctionnalité ont été validé, a chaque evolution dans la mehode evoluer() le monstre bouge la collision est valide le monstre apparait etc...
 

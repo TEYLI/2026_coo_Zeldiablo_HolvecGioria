@@ -65,6 +65,12 @@ public class JeuZeldiablo implements Jeu {
 
     }
 
+    /**
+     * Methode permet de savoir si la case est vide sans le personnage
+     * @param x le x
+     * @param y le y
+     * @return true si ele est vide
+     */
     public boolean estCaseVideDePersonnage(int x, int y) {
         for (int i = 0; i < this.personnages.size(); i++) {
             Personnage p = this.personnages.get(i);
