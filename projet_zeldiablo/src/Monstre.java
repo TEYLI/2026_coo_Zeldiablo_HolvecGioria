@@ -26,14 +26,27 @@ public class Monstre implements Personnage {
      * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire (A metre dans l'interface)
      * @param
      */
-    public void deplacer(int x, int y, Labyrinthe labyrinthe) {
+    public void deplacer(Labyrinthe labyrinthe) {
         int futurX = this.x;
         int futurY = this.y;
 
-        if (commande.gauche) futurX--;
-        if (commande.droite) futurX++;
-        if (commande.haut)   futurY--;
-        if (commande.bas)    futurY++;
+        int direction = (int) (Math.random()*4);
+
+        switch (direction) {
+            case 0:
+                futurX--;
+                break;
+            case 1:
+                futurX++;
+                break;
+            case 2:
+                futurY--;
+                break;
+            case 3:
+                futurY++;
+                break;
+        }
+
 
         if (labyrinthe.estTraversable(futurX, futurY)) {
             this.x = futurX;
