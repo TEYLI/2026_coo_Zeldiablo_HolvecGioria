@@ -5,7 +5,7 @@
   - critères de validation :
     - critère 1 Le labyrinthe par défaut est constitué d'une arène de taille 10*10 ;
     - critère 2  Le personnage est placé au centre de l'arène ;
-    - critère 2  Les monstres (s'il y en a) sont placés sur des cases vides (à adapter).
+    - critère 3  Les monstres (s'il y en a) sont placés sur des cases vides (à adapter).
   - responsables : Ange
 
 - fonctionnalité 2 : Collision avec les Murs
@@ -19,3 +19,4 @@
 
 Les diagramme de sequences on était terminé representant comment le moteur du Jeu génére le Jeu dans la classe Main.
 - Quelles fonctionnalités est validée ?
+Les deux ont été validé, on a rempli les 5 critères

@@ -17,3 +17,4 @@
 # Bilan
 
 - Quelles fonctionnalités est validée ?
+Nous avons initialisé le moteur graphique fourni avec le TD associé.Puis on a mis en place le dépôt avec des classes main et des testMain.Nous avons validé aucune fonctionnalité.
