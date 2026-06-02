@@ -17,6 +17,7 @@ public class JeuZeldiablo implements Jeu {
     public JeuZeldiablo() {
         this.labyrinthe = new Labyrinthe();
         this.heros = new Heros(5, 5);
+
     }
 
     //Methodes
