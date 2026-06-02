@@ -17,6 +17,7 @@ public class JeuZeldiablo implements Jeu {
     public JeuZeldiablo() {
         this.labyrinthe = new Labyrinthe();
         this.heros = new Heros(5, 5);
+        this.monstre = new Monstre(1,5);
     }
 
     //Methodes
@@ -29,6 +30,7 @@ public class JeuZeldiablo implements Jeu {
     @Override
     public void evoluer(Commande c) {
         this.heros.deplacer(c, this.labyrinthe);
+
     }
 
     /**
@@ -41,6 +43,11 @@ public class JeuZeldiablo implements Jeu {
     }
 
     //Methodes getter
-    public Labyrinthe getLabyrinthe() { return this.labyrinthe; }
-    public Heros getHeros() { return this.heros; }
+    public Labyrinthe getLabyrinthe() {
+        return this.labyrinthe;
+    }
+
+    public Heros getHeros() {
+        return this.heros;
+    }
 }
