@@ -27,7 +27,7 @@ public class JeuZeldiablo implements Jeu {
         this.personnages.add(this.heros);
 
         this.spawnMonstre(2, 2);
-        this.spawnMonstre(7, 3);
+        this.spawnMonstre(15, 15);
     }
 
     //Methodes

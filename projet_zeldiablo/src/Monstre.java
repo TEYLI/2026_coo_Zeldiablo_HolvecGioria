@@ -29,7 +29,7 @@ public abstract class Monstre extends Personnage {
 
         int direction = (int) (Math.random() * 4);
 
-        if(Math.floor(Math.random() * 12) == 1) {
+        if(Math.floor(Math.random() * 6) == 1) {
             switch (direction) {
                 case 0:
                     futurX--;
