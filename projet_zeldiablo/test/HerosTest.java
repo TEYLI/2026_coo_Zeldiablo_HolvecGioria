@@ -1,5 +1,9 @@
 import moteurJeu.Commande;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -28,11 +32,12 @@ public class HerosTest {
         //Declaration
         Labyrinthe laby = new Labyrinthe();
         Heros heros = new Heros(5, 5);
+        List<Personnage> persos = new ArrayList<>();
         Commande cmd = new Commande();
 
         //Execution
         cmd.droite = true;
-        heros.deplacer(cmd, laby);
+        heros.deplacer(cmd, laby, persos);
 
         //Test
         assertEquals(6, heros.getX(), "Le héros a dû se déplacer à droite (X=6)");
@@ -47,11 +52,12 @@ public class HerosTest {
         //Declaration
         Labyrinthe laby = new Labyrinthe();
         Heros heros = new Heros(1, 5);
+        List<Personnage> persos = new ArrayList<>();
         Commande cmd = new Commande();
 
         //Execution
         cmd.gauche = true;
-        heros.deplacer(cmd, laby);
+        heros.deplacer(cmd, laby, persos);
 
         //Test
         assertEquals(1, heros.getX(), "Le héros doit être bloqué par le mur en X=1");

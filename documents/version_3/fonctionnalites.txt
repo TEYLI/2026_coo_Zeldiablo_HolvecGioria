@@ -12,6 +12,7 @@
 	- Classe Personnage : Ange
 	- Methode SpawnMonstre() : Ange
 	- Complete methode dessiner() : Ange
+	- Mise a jour des ancien test : Jules
 
 
 
@@ -24,7 +25,7 @@
   - responsables : Jules , Ange
 	- classe Monstre : Jules
 	- modif methode deplacer() dans Hero : Ange
-	- testMonstre() : Jules
+	- TestCollisionPersonnages : Jules
 	
 
 - fonctionnalité 3 : Déplacement aléatoire des monstres
@@ -40,7 +41,7 @@ fantômes)..
 	- Deplacer() dans Monstre : Jules
 	- Evoluer() : Jules
 	- estCaseVideDePersonnage() : Ange
-	- testMonstre() : Jules
+	- TestMecaniqueMonstres : Jules
 
 
 # Bilan

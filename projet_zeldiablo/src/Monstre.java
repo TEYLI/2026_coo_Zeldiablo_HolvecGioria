@@ -35,21 +35,22 @@ public class Monstre implements Personnage {
 
         int direction = (int) (Math.random() * 4);
 
-        switch (direction) {
-            case 0:
-                futurX--;
-                break;
-            case 1:
-                futurX++;
-                break;
-            case 2:
-                futurY--;
-                break;
-            case 3:
-                futurY++;
-                break;
+        if(Math.floor(Math.random() * 12) == 1) {
+            switch (direction) {
+                case 0:
+                    futurX--;
+                    break;
+                case 1:
+                    futurX++;
+                    break;
+                case 2:
+                    futurY--;
+                    break;
+                case 3:
+                    futurY++;
+                    break;
+            }
         }
-
 
         if (labyrinthe.estTraversable(futurX, futurY)) {
             boolean caseOccupee = false;
