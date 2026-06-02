@@ -1,0 +1,31 @@
+# Fonctionnalités prévues version 4
+
+- fonctionnalité 1 : 
+  - descriptif texte : 
+  - critères de validation :
+    - critère 1 
+    - critère 2
+    - critère 3  
+    - critère 4  
+    - critère 5  
+  - responsables : 
+	- 
+
+
+
+- fonctionnalité 2 : 
+  - descriptif texte : 
+  - critères de validation :
+    - critère 1 
+    - critère 2 
+    - critère 3 
+  - responsables : 
+	- 
+	
+
+# Bilan
+
+Les diagramme de sequences on était terminé. Et de classe mis a jours.
+- Quelles fonctionnalités est validée ?
+
+
