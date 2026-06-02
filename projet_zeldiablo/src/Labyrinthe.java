@@ -13,8 +13,8 @@ public class Labyrinthe {
      *  Constructeur par default
      */
     public Labyrinthe() {
-        this.largeur = 10;
-        this.hauteur = 10;
+        this.largeur = 20;
+        this.hauteur = 20;
         this.grille = new Case[largeur][hauteur];
 
         // Initialisation de l'arène
@@ -25,6 +25,35 @@ public class Labyrinthe {
                     grille[i][j] = new Case(true);
                 } else {
                     grille[i][j] = new Case(false);
+                }
+            }
+        }
+
+        int departHerosX = 5;
+        int departHerosY = 5;
+        int departMonstre1X = 2;
+        int departMonstre1Y = 2;
+        int departMonstre2X = 15;
+        int departMonstre2Y = 15;
+        double probabiliteMur = 0.2;
+
+        for(int i = 0; i < largeur; i++){
+            for(int j = 0; j < hauteur; j++){
+                if(i == 0 || i == largeur - 1 || j == 0 || j == hauteur - 1){
+                    grille[i][j] = new Case(true);
+                } else if (i == departHerosX && j == departHerosY) {
+                    grille[i][j] = new Case(false);
+                } else if (i == departMonstre1X && j == departMonstre1Y) {
+                    grille[i][j] = new Case(false);
+                } else if (i == departMonstre2X && j == departMonstre2Y) {
+                    grille[i][j] = new Case(false);
+                } else {
+                    if (Math.random() < probabiliteMur) {
+                        grille[i][j] = new Case(true);
+                    }  else {
+                        grille[i][j] = new Case(false);
+                    }
+
                 }
             }
         }

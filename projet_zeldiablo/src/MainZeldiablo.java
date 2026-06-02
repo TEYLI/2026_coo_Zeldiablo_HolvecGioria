@@ -16,6 +16,6 @@ public class MainZeldiablo {
 
         //Mise en place du moteur graphique
         MoteurGraphique moteur = new MoteurGraphique(jeu, dessin);
-        moteur.lancerJeu(400, 400);
+        moteur.lancerJeu(800, 800);
     }
 }
