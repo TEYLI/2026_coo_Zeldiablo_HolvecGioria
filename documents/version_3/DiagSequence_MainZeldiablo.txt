@@ -1,0 +1,38 @@
+@startuml
+title Diagramme de séquence - Initialisation du Jeu Zeldiablo
+
+participant "MainZeldiablo" as Main
+participant "jeu : JeuZeldiablo" as Jeu
+participant "labyrinthe : Labyrinthe" as Laby
+participant "m : Monstre" as Monstre
+
+Main -> Jeu : new JeuZeldiablo()
+activate Jeu
+
+Jeu -> Laby : new Labyrinthe()
+activate Laby
+Laby --> Jeu : labyrinthe
+deactivate Laby
+
+note right of Jeu : Le jeu place le Heros\npuis place le monstre
+
+Jeu -> Jeu : spawnMonstre(x, y)
+activate Jeu
+
+Jeu -> Laby : estTraversable(x, y)
+activate Laby
+Laby --> Jeu : true (Ce n'est pas un mur)
+deactivate Laby
+
+Jeu -> Jeu : estCaseVideDePersonnage(x, y)
+note right of Jeu : On vérifie que la case \nsuivante soit vide
+Jeu --> Jeu : true (La case est vide)
+
+alt Si la case est libre
+    Jeu -> Monstre ** : new Monstre(x, y)
+    Jeu -> Jeu : personnages.add(m)
+end
+
+deactivate Jeu
+deactivate Jeu
+@enduml

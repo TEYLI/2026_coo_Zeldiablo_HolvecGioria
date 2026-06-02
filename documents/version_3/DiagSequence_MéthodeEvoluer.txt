@@ -1,0 +1,20 @@
+@startuml
+Title Diagramme de séquence - Méthode évoluer
+participant "moteur : MoteurGraphique" as Moteur
+participant "jeu : JeuZeldiablo" as Jeu
+participant "heros : Heros" as Heros
+
+Moteur -> Jeu : evoluer(commande)
+activate Jeu
+
+Jeu -> Heros : deplacer(commande, labyrinthe)
+activate Heros
+Heros --> Jeu
+deactivate Heros
+
+note right of Jeu : Fin de la methode evoluer()\nLes monstres ne bougent pas
+
+Jeu --> Moteur
+deactivate Jeu
+@enduml
+

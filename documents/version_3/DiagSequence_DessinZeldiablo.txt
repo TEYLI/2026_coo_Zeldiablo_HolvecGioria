@@ -1,0 +1,44 @@
+@startuml
+Title Diagramme de séquence - DessinZeldiablo
+participant "moteur : MoteurGraphique" as Moteur
+participant "dessin : DessinZeldiablo" as Dessin
+participant "jeu : JeuZeldiablo" as Jeu
+participant "p : Personnage" as Perso
+participant "g : Graphics" as G
+
+Moteur -> Dessin : dessiner(image)
+activate Dessin
+
+Dessin -> Jeu : getPersonnages()
+activate Jeu
+Jeu --> Dessin : listePersonnages
+deactivate Jeu
+
+loop Pour chaque Personnage de la liste
+    Dessin -> Perso : getX()
+    activate Perso
+    Perso --> Dessin : x
+    deactivate Perso
+    
+    Dessin -> Perso : getY()
+    activate Perso
+    Perso --> Dessin : y
+    deactivate Perso
+
+    alt p instanceof Monstre
+        Dessin -> G : setColor(Color.RED)
+        activate G
+        deactivate G
+    else p instanceof Heros
+        Dessin -> G : setColor(Color.BLUE)
+        activate G
+        deactivate G
+    end
+    
+    Dessin -> G : fillOval(x_pixel, y_pixel, TAILLE, TAILLE)
+    activate G
+    deactivate G
+end
+
+deactivate Dessin
+@enduml
