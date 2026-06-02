@@ -50,7 +50,7 @@ public class DessinZeldiablo implements DessinJeu {
             }
         }
 
-        //Heros
+        //construction de Personnage donc hero et monstre
         for (Personnage p : jeu.getPersonnages()) {
             int pixelX = p.getX() * TAILLE_CASE;
             int pixelY = p.getY() * TAILLE_CASE;
