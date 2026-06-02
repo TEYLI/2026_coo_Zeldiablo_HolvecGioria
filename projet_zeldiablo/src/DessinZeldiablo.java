@@ -56,8 +56,10 @@ public class DessinZeldiablo implements DessinJeu {
             int pixelY = p.getY() * TAILLE_CASE;
             if (p instanceof Heros) {
                 g.setColor(Color.BLUE);
-            } else if (p instanceof Monstre) {
+            } else if (p instanceof Ogre) {
                 g.setColor(Color.RED);
+            }else if (p instanceof Fantome) {
+                g.setColor(Color.PINK);
             }
             g.fillOval(pixelX, pixelY, TAILLE_CASE, TAILLE_CASE);
 

@@ -11,7 +11,6 @@ public class Heros extends Personnage {
         super(x, y);
     }
 
-
     //Methodes
     /**
      * Methode deplacer qui permet de deplacer le Hero
@@ -43,10 +42,4 @@ public class Heros extends Personnage {
             }
         }
     }
-    //Methode getter
-    @Override
-    public int getX() { return x; }
-
-
-    public int getY() { return y; }
 }

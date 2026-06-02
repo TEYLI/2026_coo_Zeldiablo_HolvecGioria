@@ -3,6 +3,7 @@ import moteurJeu.Jeu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Classe JeuZeldiablo permet de cconstruire le jeu
@@ -22,29 +23,20 @@ public class JeuZeldiablo implements Jeu {
         this.labyrinthe = new Labyrinthe();
         this.personnages = new ArrayList<>();
 
-        // 1. Initialisation et ajout du héros
-        this.heros = new Heros(5, 5);
+        // 1. Initialisation et ajout du héros au centre
+        this.heros = new Heros(10, 10);
         this.personnages.add(this.heros);
 
-        this.spawnMonstre(2, 2);
-        this.spawnMonstre(15, 15);
+        // 2. Ajout des monstres à des positions fixes
+        this.personnages.add(new Ogre(2, 2));
+        this.personnages.add(new Ogre(15, 5));
+
+        // On place des Fantômes
+        this.personnages.add(new Fantome(7, 3));
+        this.personnages.add(new Fantome(12, 15));
     }
 
     //Methodes
-
-    /**
-     * Methode spawn monstre qui fait apparaitre des monstre a une position valide
-     * @param x le x du spawn
-     * @param y le y du spawn
-     */
-    public void spawnMonstre(int x, int y) {
-        // Validation : on vérifie que la case existe et n'est pas un mur
-        if (this.labyrinthe.estTraversable(x, y)) {
-            Monstre monstre = new Monstre(x, y);
-            this.personnages.add(monstre);
-        }
-    }
-
     /**
      * Methode evoluer permet de suivre les commande d'utilisateur et actualiser dans le jeu
      * @param c

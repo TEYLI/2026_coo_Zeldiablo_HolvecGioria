@@ -61,8 +61,4 @@ public abstract class Monstre extends Personnage {
             }
         }
     }
-
-    //Methode getter
-    public int getX() { return x; }
-    public int getY() { return y; }
 }
