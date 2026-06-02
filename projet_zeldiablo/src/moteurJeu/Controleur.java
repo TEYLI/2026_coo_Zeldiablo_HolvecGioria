@@ -69,6 +69,7 @@ public class Controleur implements KeyListener {
 			this.commandeARetourner.bas = true;
 			break;
 		}
+		
 
 	}
 

@@ -18,6 +18,15 @@
     - critère 3 Le monstre se déplace à chaque fois après le joueur.
   - responsables : Ange
 
+- fonctionnalité 2 : Collision avec un monstre
+  - descriptif texte : Lorsque le joueur demande au personnage de se déplacer vers une case contenant un monstre, le personnage ne se déplace pas.
+  - critères de validation :
+    - critère 1 La collision fonctionne dans les 4 directions.
+    - critère 2 Si la case est vide, le personnage avance.
+    - critère 3 Le monstre se déplace à chaque fois après le joueur.
+  - responsables : Ange
+
+
 # Bilan
 
 Les diagramme de sequences on était terminé representant 

@@ -1,9 +1,9 @@
 import moteurJeu.Commande;
 
 /**
- * Classe Heros permet de représenter le personage de Zeldiablo
+ * Classe Heros permet de représenter un personage de Zeldiablo
  */
-public class Heros {
+public class Heros implements Personnage {
     //Attributs
     private int x;
     private int y;
