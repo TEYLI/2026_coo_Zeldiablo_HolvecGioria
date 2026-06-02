@@ -23,12 +23,15 @@ public class JeuZeldiablo implements Jeu {
 
         // 1. Initialisation et ajout du héros
         this.heros = new Heros(5, 5);
+<<<<<<< HEAD
         this.personnages.add(this.heros);
 
         // 2. Exemples de spawn de monstres sur des cases vides
         this.spawnMonstre(2, 2);
         this.spawnMonstre(7, 3);
 
+=======
+>>>>>>> 74e5b14629ebe707438b85aa8c90765e73087cbf
     }
 
     //Methodes
@@ -48,6 +51,7 @@ public class JeuZeldiablo implements Jeu {
     @Override
     public void evoluer(Commande c) {
         this.heros.deplacer(c, this.labyrinthe);
+
     }
 
     /**
@@ -64,5 +68,4 @@ public class JeuZeldiablo implements Jeu {
     public Heros getHeros() { return this.heros; }
     public List<Personnage> getPersonnages() {
         return this.personnages;
-    }
 }
