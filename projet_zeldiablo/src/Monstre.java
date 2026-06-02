@@ -24,7 +24,7 @@ public class Monstre implements Personnage {
 
     /**
      * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire (A metre dans l'interface)
-     * @param
+     * @param labyrinthe le labyrinthe sur lequel le monstre se déplace 
      */
     public void deplacer(Labyrinthe labyrinthe) {
         int futurX = this.x;
