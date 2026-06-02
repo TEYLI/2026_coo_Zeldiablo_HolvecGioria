@@ -3,7 +3,7 @@
 - fonctionnalité 1 : Génération de monstres immobiles
   - descriptif texte : Au lancement du jeu, le jeu ajoute diérents monstres dans l'environnement. Les monstres restent immobiles.
   - critères de validation :
-    - critère 1 Il est possible de construire un labyrinthe par défaut contenant quelques monstres(le labyrinthe par défaut est à dénir).
+    - critère 1 Il est possible de construire un labyrinthe par défaut contenant quelques monstres(le labyrinthe par défaut est à défnir).
     - critère 2  Les monstres sont créés sur des cases vides.
     - critère 3  Il n'est pas possible de générer des monstres sur des cases non vides (position du joueur, d'autres monstres ou de murs)
     - critère 4  Les monstres doivent apparaitre dans l'interface graphique sous la forme d'un cercle rouge.
@@ -21,9 +21,9 @@
     - critère 1 La collision fonctionne dans les 4 directions.
     - critère 2 Si la case est vide, le personnage avance.
     - critère 3 Le monstre se déplace à chaque fois après le joueur.
-  - responsables : Jules
-	- classe Monstre
-	- 
+  - responsables : Jules Ange
+	- classe Monstre : Jules
+	- modif methode deplacer() dans Hero : Ange
 	
 
 - fonctionnalité 3 : Déplacement aléatoire des monstres

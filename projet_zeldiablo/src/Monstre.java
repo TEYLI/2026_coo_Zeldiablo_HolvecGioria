@@ -1,5 +1,7 @@
 import moteurJeu.Commande;
 
+import java.util.List;
+
 /**
  * Classe Monstre permet de représenter un personage de Zeldiablo
  */
@@ -23,14 +25,15 @@ public class Monstre implements Personnage {
     //Methodes
 
     /**
-     * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire (A metre dans l'interface)
+     * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire
      * @param labyrinthe le labyrinthe sur lequel le monstre se déplace
+     * @param personnages la liste des persos
      */
-    public void deplacer(Labyrinthe labyrinthe) {
+    public void deplacer(Labyrinthe labyrinthe, List<Personnage> personnages) {
         int futurX = this.x;
         int futurY = this.y;
 
-        int direction = (int) (Math.random()*4);
+        int direction = (int) (Math.random() * 4);
 
         switch (direction) {
             case 0:
@@ -49,8 +52,18 @@ public class Monstre implements Personnage {
 
 
         if (labyrinthe.estTraversable(futurX, futurY)) {
-            this.x = futurX;
-            this.y = futurY;
+            boolean caseOccupee = false;
+            for (int i = 0; i < personnages.size(); i++) {
+                Personnage p = personnages.get(i);
+                if (p != this && p.getX() == futurX && p.getY() == futurY) {
+                    caseOccupee = true;
+                    break;
+                }
+            }
+            if (!caseOccupee) {
+                this.x = futurX;
+                this.y = futurY;
+            }
         }
     }
 

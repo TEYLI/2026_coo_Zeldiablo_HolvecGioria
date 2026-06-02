@@ -31,6 +31,12 @@ public class JeuZeldiablo implements Jeu {
     }
 
     //Methodes
+
+    /**
+     * Methode spawn monstre qui faire apparaitre des monstre a une position valide
+     * @param x le x du spawn
+     * @param y le y du spawn
+     */
     public void spawnMonstre(int x, int y) {
         // Validation : on vérifie que la case existe et n'est pas un mur
         if (this.labyrinthe.estTraversable(x, y)) {
@@ -46,8 +52,27 @@ public class JeuZeldiablo implements Jeu {
      */
     @Override
     public void evoluer(Commande c) {
-        this.heros.deplacer(c, this.labyrinthe);
+        //Heros
+        this.heros.deplacer(c, this.labyrinthe,this.personnages);
 
+        //Monstres
+        for (int i = 0; i < this.personnages.size(); i++) {
+            Personnage p = this.personnages.get(i);
+            if (p instanceof Monstre) {
+                ((Monstre) p).deplacer(this.labyrinthe,this.personnages);
+            }
+        }
+
+    }
+
+    public boolean estCaseVideDePersonnage(int x, int y) {
+        for (int i = 0; i < this.personnages.size(); i++) {
+            Personnage p = this.personnages.get(i);
+            if (p.getX() == x && p.getY() == y) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
