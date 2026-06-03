@@ -61,7 +61,9 @@ public class JeuZeldiablo implements Jeu {
         //Monstres
         for (int i = 0; i < this.personnages.size(); i++) {
             Personnage p = this.personnages.get(i);
+            //Si le perso est un monstre alors on
             if (p instanceof Monstre) {
+                //Definie son type comme Monstre et agis
                 ((Monstre) p).agir(this.labyrinthe, this.personnages);
             }
         }

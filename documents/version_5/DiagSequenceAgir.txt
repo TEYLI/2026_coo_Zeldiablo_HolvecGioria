@@ -1,0 +1,71 @@
+@startuml
+Title Diagramme de Sequence - Méthode agir dans Monstre
+
+participant "jeu : JeuZeldiablo" as Jeu
+participant "this : Monstre" as Monstre
+participant "personnages : List" as Liste
+participant "p : Personnage" as Perso
+participant "heros : Heros" as Heros
+participant "Math" as Math
+participant "System" as System
+
+Jeu -> Monstre : agir(labyrinthe, personnages)
+activate Monstre
+
+loop pour i = 0 jusqu à personnages.size() - 1
+    Monstre -> Liste : get(i)
+    activate Liste
+    Liste --> Monstre : p
+    deactivate Liste
+
+    alt si p est une instance de Heros
+        note right of Monstre : Verif si p est le heros, si hero alors break
+    end
+end
+
+
+alt si heros != null
+    Monstre -> Heros : getX()
+    activate Heros
+    Heros --> Monstre : xHeros
+    deactivate Heros
+
+    Monstre -> Heros : getY()
+    activate Heros
+    Heros --> Monstre : yHeros
+    deactivate Heros
+
+    Monstre -> Math : abs(this.x - xHeros)
+    activate Math
+    Math --> Monstre : distanceX
+    deactivate Math
+
+    Monstre -> Math : abs(this.y - yHeros)
+    activate Math
+    Math --> Monstre : distanceY
+    deactivate Math
+
+    alt si distanceX + distanceY == 1
+        Monstre -> System : currentTimeMillis()
+        activate System
+        System --> Monstre : tempsActuel
+        deactivate System
+
+        alt si tempsActuel - tempsDerniereAttaque >= 5000
+            Monstre -> Heros : subirDegats(this.degats)
+            activate Heros
+            Heros --> Monstre
+            deactivate Heros
+            note right of Monstre : tempsDerniereAttaque = tempsActuel
+        end
+    end
+end
+
+
+Monstre -> Monstre : deplacer(labyrinthe, personnages)
+activate Monstre
+deactivate Monstre
+
+Monstre --> Jeu
+deactivate Monstre
+@enduml

@@ -26,8 +26,10 @@
 	
 Le diagramme de classe complet a été mis à jour.
 # Bilan
-La mecanique de notre jeu prend forme.Un systeme de pièce complet qui apparait aléatoirement  sur le labyrinthe, les pieces sont comptées en console, défiez vos amis !!!
+La mecanique de notre jeu prend forme.Un systeme de pièce complet qui apparait aléatoirement  sur le labyrinthe, les pieces sont comptées en console, défiez vos amis !!! Combien de pièces pouvez vous récupérer face aux monstre !!
+
 Un système d'attaque des monstres et de gestionnaire de PV affichage en console à été mis en place. Vous avez 10 PV.Les fantomes font 1 degats et les ogres 2 degats.
+
 - Quelles fonctionnalités est validée ?
 Les deux fonctionnalitées sont validées.
 

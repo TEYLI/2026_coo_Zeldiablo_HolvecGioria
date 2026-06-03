@@ -1,0 +1,69 @@
+@startuml
+Title Diagramme de Sequence - Méthode evoluer dans JeuZeldiablo
+
+participant "MoteurGraphique" as Moteur
+participant "this : JeuZeldiablo" as Jeu
+participant "heros : Heros" as Heros
+participant "piece : Piece" as Piece
+participant "personnages : List" as Liste
+participant "m : Monstre" as Monstre
+
+Moteur -> Jeu : evoluer(c)
+activate Jeu
+
+
+Jeu -> Heros : deplacer(c, labyrinthe, personnages)
+activate Heros
+Heros --> Jeu
+deactivate Heros
+
+
+Jeu -> Heros : getX()
+activate Heros
+Heros --> Jeu : xHeros
+deactivate Heros
+
+Jeu -> Piece : getX()
+activate Piece
+Piece --> Jeu : xPiece
+deactivate Piece
+
+Jeu -> Heros : getY()
+activate Heros
+Heros --> Jeu : yHeros
+deactivate Heros
+
+Jeu -> Piece : getY()
+activate Piece
+Piece --> Jeu : yPiece
+deactivate Piece
+
+alt si xHeros == xPiece ET yHeros == yPiece
+    Jeu -> Heros : ramasserPiece()
+    activate Heros
+    Heros --> Jeu
+    deactivate Heros
+
+    Jeu -> Jeu : spawnPiece()
+    activate Jeu
+    note right of Jeu : nouvelle pièce qui ecrase l'ancienne
+    deactivate Jeu
+end
+
+loop pour i = 0 jusqu'à personnages.size() - 1
+    Jeu -> Liste : get(i)
+    activate Liste
+    Liste --> Jeu : p
+    deactivate Liste
+
+    alt si p est une instance de Monstre
+        Jeu -> Monstre : agir(labyrinthe, personnages)
+        activate Monstre
+        Monstre --> Jeu
+        deactivate Monstre
+    end
+end
+
+Jeu --> Moteur
+deactivate Jeu
+@enduml

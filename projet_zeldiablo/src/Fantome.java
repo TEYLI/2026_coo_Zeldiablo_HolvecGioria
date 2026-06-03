@@ -30,7 +30,7 @@ public class Fantome extends Monstre {
         //Direction choisi au hasard (4 direction)
         int direction = (int) (Math.random() * 4);
 
-        //diminution du nombre de deplacement 1 chance sur 6 toute les evolution du jeu
+        //diminution du nombre de deplacement 1 chance sur 2 toute les evolution du jeu
         if (Math.floor(Math.random() * 2) == 1) {
             //Deplacement
             switch (direction) {
