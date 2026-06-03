@@ -11,6 +11,8 @@ ange.holvec5@etu.univ-lorraine
 jules.giorgia9@etu.univ-lorraine
 
 ## Etat du projet
+Version 4:
+- Ajout d'un nouveau type de monstre : Fantome ,Agrandissement du labyrinthe et génération des murs.
 
 Version 3:
 - L'arrivée des monstres, leurs deplacements et collisions ainsi que les tests.

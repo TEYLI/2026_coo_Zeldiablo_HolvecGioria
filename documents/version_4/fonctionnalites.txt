@@ -9,6 +9,7 @@
   - responsables : Jules
 	- Labyrinthe() : Jules
 	- TestLabyrinthe : Jules
+	- Mise a jours des autres Tests : Jules
 
 
 
@@ -17,12 +18,12 @@
   - critères de validation :
     - critère 1 Les fantômes peuvent traverser des murs mais pas les autres personnages (les autres monstres ou le héros)
     - critère 2 Les autres monstres continuent à être bloqués par des murs.
-  - responsables : Ange
-	- Personnage : Ange
+  - responsables : Ange, Jules
+	- Personnage : Ange 
 	- Ogre : Ange
 	- Fantome + deplacer() : Ange
 	- Monstre + deplacer() : Ange
-	- TestMecaniqueMonstre : Ange
+	- TestMecaniqueMonstre : Jules
 	
 Le diagramme de classe complet a été mis à jour.
 # Bilan
