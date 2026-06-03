@@ -1,0 +1,40 @@
+# Fonctionnalités prévues version 5
+
+- fonctionnalité 1 : Attaque des monstres
+  - descriptif texte : Lorsqu'un monstre doit agir, si le monstre se trouve à coté du héros, alors il ne se déplace pas mais il attaque celui-ci.
+  - critères de validation :
+    - critère 1 Lorsque le monstre est à côté du joueur, il attaque et ne se déplace pas. Par défaut,le Héros perd 1 point de vie si Fantome et 2 si ogre.
+    - critère 2 Lorsque le monstre est loin du joueur, il n'attaque pas mais se déplace.
+  - responsables : Ange
+	- 
+
+
+
+- fonctionnalité 2 (personnalisée): Gestionnaire de pièce
+  - descriptif texte : Arrivé des pièce dans le labyrinthe, immobile et compteur dans la console.
+  - critères de validation :
+    - critère 1 La piece apparait immobile dans le labyrinthe atteignable par le joueur.
+    - critère 2 Quand le joueur est dans la meme case que la piece la piece disparait et apparait a un autre endroit atteignable.
+    - critère 3 Apres la recupération le compteur dans la console est incrementé.
+  - responsables : Ange, Jules
+	- Personnage : Ange 
+	- Ogre : Ange
+	- Fantome + deplacer() : Ange
+	- Monstre + deplacer() : Ange
+	- TestMecaniqueMonstre : Jules
+
+- fonctionnalité 3 (personnalisée): Plus le temps passe plus les monstre sont puissant.
+  - descriptif texte : un système de gestionnaire de temps plus le temps passe plus la proba de deplacement des monstre augmente.
+  - critères de validation :
+    - critère 1 Les monstre sont plus rapide toute les 2 min
+    - critère 2 Le compteur de temps s'affiche dans la console
+    - critère 3 la proba de deplacement ne descend pas en dessous de 1/2.
+  - responsables : Ange , Jules
+	- Personnage :
+	
+Le diagramme de classe complet a été mis à jour.
+# Bilan
+
+- Quelles fonctionnalités est validée ?
+
+
