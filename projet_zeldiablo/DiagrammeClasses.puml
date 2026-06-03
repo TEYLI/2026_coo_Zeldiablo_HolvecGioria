@@ -1,0 +1,171 @@
+@startuml
+class main.Main {
++ int retour()
++ {static} void main(String[])
+}
+
+class Piece {
+- int x
+- int y
++ <<Create>> Piece(int,int)
++ int getX()
++ int getY()
+}
+
+
+class Fantome {
++ <<Create>> Fantome(int,int)
++ void deplacer(Labyrinthe,List<Personnage>)
+}
+
+abstract class Personnage {
+# int x
+# int y
++ <<Create>> Personnage(int,int)
++ int getX()
++ int getY()
+}
+
+
+class Ogre {
++ <<Create>> Ogre(int,int)
+}
+
+class JeuZeldiablo {
+- Labyrinthe labyrinthe
+- Heros heros
+- List<Personnage> personnages
+- Piece piece
++ <<Create>> JeuZeldiablo()
++ void evoluer(Commande)
++ boolean estCaseVideDePersonnage(int,int)
++ boolean etreFini()
++ void spawnPiece()
++ Labyrinthe getLabyrinthe()
++ Heros getHeros()
++ List<Personnage> getPersonnages()
++ Piece getPiece()
+}
+
+
+class moteurJeu.InterfaceGraphique {
+- PanelDessin panel
+- Controleur controleur
++ <<Create>> InterfaceGraphique(DessinJeu,int,int)
++ Controleur getControleur()
++ void dessiner()
+}
+
+
+class moteurJeu.MoteurGraphique {
+- Jeu jeu
+- InterfaceGraphique gui
+- DessinJeu dessin
++ <<Create>> MoteurGraphique(Jeu,DessinJeu)
++ void lancerJeu(int,int)
+}
+
+
+class DessinZeldiablo {
+- JeuZeldiablo jeu
+- {static} int TAILLE_CASE
++ <<Create>> DessinZeldiablo(JeuZeldiablo)
++ void dessiner(BufferedImage)
+}
+
+
+class moteurJeu.PanelDessin {
+- DessinJeu dessin
+- BufferedImage imageSuivante
+- BufferedImage imageEnCours
+- int width
++ <<Create>> PanelDessin(int,int,DessinJeu)
++ void dessinerJeu()
++ void paint(Graphics)
+}
+
+
+interface moteurJeu.DessinJeu {
++ {abstract}void dessiner(BufferedImage)
+}
+
+class Labyrinthe {
+- Case[][] grille
+- int largeur
+- int hauteur
++ <<Create>> Labyrinthe()
++ boolean estTraversable(int,int)
++ int getLargeur()
++ int getHauteur()
+}
+
+
+interface moteurJeu.Jeu {
++ void evoluer(Commande)
++ boolean etreFini()
+}
+
+class Case {
+- boolean estMur
++ <<Create>> Case(boolean)
++ boolean estTraversable()
+}
+
+
+class MainZeldiablo {
++ {static} void main(String[])
+}
+
+class Heros {
+- int pointsDeVie
+- int piecesRamassees
++ <<Create>> Heros(int,int)
++ void deplacer(Commande,Labyrinthe,List<Personnage>)
++ void subirDegats(int)
++ void ramasserPiece()
++ int getPointsDeVie()
++ int getPiecesRamassees()
+}
+
+
+abstract class Monstre {
+# int degats
+# long tempsDerniereAttaque
++ <<Create>> Monstre(int,int,int)
++ void agir(Labyrinthe,List<Personnage>)
++ void deplacer(Labyrinthe,List<Personnage>)
+}
+
+
+class moteurJeu.Commande {
++ boolean gauche
++ boolean droite
++ boolean haut
++ boolean bas
++ <<Create>> Commande()
++ <<Create>> Commande(Commande)
+}
+
+
+class moteurJeu.Controleur {
+- Commande commandeEnCours
+- Commande commandeARetourner
++ <<Create>> Controleur()
++ Commande getCommande()
++ void keyPressed(KeyEvent)
++ void keyReleased(KeyEvent)
++ void keyTyped(KeyEvent)
+}
+
+
+
+
+Monstre <|-- Fantome
+Monstre <|-- Ogre
+moteurJeu.Jeu <|.. JeuZeldiablo
+moteurJeu.DessinJeu <|.. DessinZeldiablo
+javax.swing.JPanel <|-- moteurJeu.PanelDessin
+Personnage <|-- Heros
+Personnage <|-- Monstre
+java.awt.event.KeyListener <|.. moteurJeu.Controleur
+@enduml

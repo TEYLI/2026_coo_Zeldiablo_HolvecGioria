@@ -1,0 +1,121 @@
+@startuml
+
+interface Jeu {
+  + evoluer(commandeUser : Commande) : void
+  + etreFini() : boolean
+}
+
+interface DessinJeu {
+  + dessiner(image : BufferedImage) : void
+}
+
+class Commande {
+  + gauche : boolean
+  + droite : boolean
+  + haut : boolean
+  + bas : boolean
+  + Commande()
+  + Commande(Commande commandeACopier)
+}
+
+class MoteurGraphique {
+  - gui : InterfaceGraphique
+  + MoteurGraphique(pJeu : Jeu, pAffiche : DessinJeu)
+  + lancerJeu(width : int, height : int) : void
+}
+
+class JeuZeldiablo {
+  + JeuZeldiablo()
+  + evoluer(c : Commande) : void
+  + estCaseVideDePersonnage(x : int, y : int) : boolean
+  + etreFini() : boolean
+  + getLabyrinthe() : Labyrinthe
+  + getHeros() : Heros
+  + getPersonnages() : List<Personnage>
+}
+
+class DessinZeldiablo {
+  - {static} TAILLE_CASE : int = 40
+  + DessinZeldiablo(jeu : JeuZeldiablo)
+  + dessiner(image : BufferedImage) : void
+}
+
+class Piece {
+  - x : int
+  - y : int 
+  + Piece(x : int, y : int) 
+  + getX() : int 
+  + getY() : int
+}
+
+abstract class Personnage {
+  # x : int
+  # y : int 
+  + Personnages(x : int, y :int)
+  + getX() : int
+  + getY() : int
+}
+
+class Heros {
+  - pointsDeVie : int
+  - pieceRamassees : int
+  + Heros(x : int, y : int)
+  + deplacer(commande : Commande, labyrinthe : Labyrinthe, List<Personnage> personnages) : void
+  + subirDegats(degats : int) : void
+  + ramasserPiece() : void
+  + getPointsDeVie() : int
+  + getPiecesRamassees() : int
+}
+
+class Labyrinthe {
+  - largeur : int
+  - hauteur : int
+  + Labyrinthe()
+  + estTraversable(x : int, y : int) : boolean
+  + getLargeur() : int
+  + getHauteur() : int
+}
+
+class Case {
+  - estMur : boolean
+  + Case(estMur : boolean)
+  + estTraversable() : boolean
+}
+
+abstract class Monstre {
+  # degats : int
+  # tempsDerniereAttaque : long
+  + Monstre(x : int, y : int)
+  + agir(labyrinthe : labyrinthe, personnages : List<Personnage>) 
+  + deplacer(labyrinthe : Labyrinthe, personnages : List<Personnage> ) : void
+}
+
+class Fantomes {
+  + Fantome(x : int, y : int)
+  + deplacer(labyrinthe : Labyrinthe, personnages : List<Personnage>)
+}
+
+class Ogres {
+  + Ogres(x : int, y : int)
+}
+
+MoteurGraphique "1" --> "1" Jeu : - jeu : Jeu
+MoteurGraphique "1" -up-> "1" DessinJeu : - dessin : DessinJeu
+
+Heros --|> Personnage
+Monstre -up-|> Personnage
+
+JeuZeldiablo ..|> Jeu
+DessinZeldiablo .up.|> DessinJeu
+
+JeuZeldiablo "1" --> "1..*" Personnage : - p : Personnage
+JeuZeldiablo "1" -right-> "1" Labyrinthe : - Labyrinthe : Labyrinthe
+Labyrinthe "1" -right-> "1..*" Case : - grille : Case[][]
+
+DessinZeldiablo "1" --> "1" JeuZeldiablo : - jeu : JeuZeldiablo
+JeuZeldiablo "1" --> "1" Heros : - heros : Heros
+
+Fantomes -up-|> Monstre
+Ogres -up-|> Monstre
+
+JeuZeldiablo --> Piece : -piece : Piece
