@@ -87,6 +87,11 @@ public class JeuZeldiablo implements Jeu {
      */
     @Override
     public boolean etreFini() {
+        if (this.heros.getPointsDeVie() <= 0) {
+            System.out.println("GAME OVER - Le héros n'a plus de vie !");
+            return true;
+        }
+
         return false;
     }
 
