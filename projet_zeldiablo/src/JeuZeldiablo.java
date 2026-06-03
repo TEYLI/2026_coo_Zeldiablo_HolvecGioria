@@ -29,11 +29,11 @@ public class JeuZeldiablo implements Jeu {
 
         // 2. Ajout des monstres à des positions fixes
         this.personnages.add(new Ogre(2, 2));
-        this.personnages.add(new Ogre(15, 5));
+        this.personnages.add(new Ogre(10, 5));
 
         // On place des Fantômes
         this.personnages.add(new Fantome(7, 3));
-        this.personnages.add(new Fantome(12, 15));
+        this.personnages.add(new Fantome(12, 14));
     }
 
     //Methodes

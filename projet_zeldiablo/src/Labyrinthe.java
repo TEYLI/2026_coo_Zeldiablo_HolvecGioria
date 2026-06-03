@@ -13,8 +13,8 @@ public class Labyrinthe {
      */
     public Labyrinthe() {
         //Selection de la taille du laby
-        this.largeur = 20;
-        this.hauteur = 20;
+        this.largeur = 15;
+        this.hauteur = 15;
         this.grille = new Case[largeur][hauteur];
 
         // Initialisation de l'arène
