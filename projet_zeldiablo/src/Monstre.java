@@ -24,12 +24,16 @@ public abstract class Monstre extends Personnage {
      * @param personnages la liste des persos
      */
     public void deplacer(Labyrinthe labyrinthe, List<Personnage> personnages) {
+        //Initialisation de la futur position du Monstre
         int futurX = this.x;
         int futurY = this.y;
 
+        //Direction choisi au hasard (4 direction)
         int direction = (int) (Math.random() * 4);
 
+        //diminution du nombre de deplacement 1 chance sur 6 toute les evolution du jeu
         if(Math.floor(Math.random() * 6) == 1) {
+            //Deplacement
             switch (direction) {
                 case 0:
                     futurX--;
@@ -46,8 +50,11 @@ public abstract class Monstre extends Personnage {
             }
         }
 
+        //Le monstre ne traverse pas les murs
         if (labyrinthe.estTraversable(futurX, futurY)) {
             boolean caseOccupee = false;
+
+            //Verification que le Monstre ne traverse pas un personnage
             for (int i = 0; i < personnages.size(); i++) {
                 Personnage p = personnages.get(i);
                 if (p != this && p.getX() == futurX && p.getY() == futurY) {
@@ -55,6 +62,8 @@ public abstract class Monstre extends Personnage {
                     break;
                 }
             }
+
+            //Deplacement du Monstre si la case n'est ni le bord du laby ni un perso
             if (!caseOccupee) {
                 this.x = futurX;
                 this.y = futurY;

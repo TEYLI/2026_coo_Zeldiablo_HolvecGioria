@@ -23,13 +23,16 @@ public class Fantome extends Monstre {
      */
     @Override
     public void deplacer(Labyrinthe labyrinthe, List<Personnage> personnages) {
-
+        //Initialisation de la futur position du fantome
         int futurX = this.x;
         int futurY = this.y;
 
+        //Direction choisi au hasard (4 direction)
         int direction = (int) (Math.random() * 4);
 
-        if (Math.floor(Math.random() * 12) == 1) {
+        //diminution du nombre de deplacement 1 chance sur 6 toute les evolution du jeu
+        if (Math.floor(Math.random() * 6) == 1) {
+            //Deplacement
             switch (direction) {
                 case 0: futurX--; break;
                 case 1: futurX++; break;
@@ -37,9 +40,11 @@ public class Fantome extends Monstre {
                 case 3: futurY++; break;
             }
         }
+        //verification que le Fantome ne depasse pas le terrain
         if (futurX >= 0 && futurX < labyrinthe.getLargeur() && futurY >= 0 && futurY < labyrinthe.getHauteur()) {
             boolean caseOccupee = false;
 
+            //Verification que le Fantome ne traverse pas un personnage
             for (int i = 0; i < personnages.size(); i++) {
                 Personnage p = personnages.get(i);
                 if (p != this && p.getX() == futurX && p.getY() == futurY) {
@@ -48,6 +53,7 @@ public class Fantome extends Monstre {
                 }
             }
 
+            //Deplacement du fantome si la case n'est ni le bord du laby ni un perso
             if (!caseOccupee) {
                 this.x = futurX;
                 this.y = futurY;
