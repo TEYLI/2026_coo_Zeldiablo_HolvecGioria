@@ -31,17 +31,19 @@ public class DessinZeldiablo implements DessinJeu {
      */
     @Override
     public void dessiner(BufferedImage image) {
-        //initialisation de l'image
+        //Initialisation de l'image
         Graphics g = image.getGraphics();
 
         Labyrinthe laby = jeu.getLabyrinthe();
 
         for (int i = 0; i < laby.getLargeur(); i++) {
             for (int j = 0; j < laby.getHauteur(); j++) {
+                //Mur
                 if (!laby.estTraversable(i, j)) {
-                    g.setColor(Color.DARK_GRAY); // Mur
+                    g.setColor(Color.DARK_GRAY);
                 } else {
-                    g.setColor(Color.WHITE); // Sol vide
+                    //Sol vide
+                    g.setColor(Color.WHITE);
                 }
                 g.fillRect(i * TAILLE_CASE, j * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
 
@@ -50,14 +52,18 @@ public class DessinZeldiablo implements DessinJeu {
             }
         }
 
-        //construction de Personnage donc hero et monstre
+        //Construction de Personnage donc hero et monstre
         for (Personnage p : jeu.getPersonnages()) {
             int pixelX = p.getX() * TAILLE_CASE;
             int pixelY = p.getY() * TAILLE_CASE;
+
+            //Couleur de Hero
             if (p instanceof Heros) {
                 g.setColor(Color.BLUE);
+                //Couleur de Ogre
             } else if (p instanceof Ogre) {
                 g.setColor(Color.RED);
+                //Couleur de Fantome
             }else if (p instanceof Fantome) {
                 g.setColor(Color.PINK);
             }

@@ -29,6 +29,8 @@ public class Labyrinthe {
             }
         }
 
+
+        //Generation de la partie du millieu
         int departHerosX = 5;
         int departHerosY = 5;
         int departMonstre1X = 2;
