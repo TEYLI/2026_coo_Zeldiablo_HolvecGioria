@@ -8,18 +8,20 @@ import java.util.List;
 public abstract class Monstre extends Personnage {
     //Attributs
     protected int degats;
-    protected boolean aAttaque;
+    protected long tempsDerniereAttaque;
     //Constructeur
+
     /**
      * Constructeur a 2 paramettres permet d'initialiser le monstre
+     *
      * @param x le x possition
      * @param y y position
      */
 
-    public Monstre(int x, int y,int degats) {
+    public Monstre(int x, int y, int degats) {
         super(x, y);
         this.degats = degats;
-        this.aAttaque = false;
+        this.tempsDerniereAttaque = 0;
     }
 
     //Methodes
@@ -36,6 +38,7 @@ public abstract class Monstre extends Personnage {
             }
         }
 
+        // 2. Vérifier la distance et le temps
         if (heros != null) {
             int distanceX = Math.abs(this.x - heros.getX());
             int distanceY = Math.abs(this.y - heros.getY());
@@ -43,23 +46,24 @@ public abstract class Monstre extends Personnage {
             // S'ils sont côte à côte
             if (distanceX + distanceY == 1) {
 
-                // Si le monstre n'a pas encore attaqué
-                if (!this.aAttaque) {
+                // On récupère le temps
+                long tempsActuel = System.currentTimeMillis();
+
+                if (tempsActuel - this.tempsDerniereAttaque >= 5000) {
                     heros.subirDegats(this.degats);
-                    this.aAttaque = true; // Il mémorise qu'il a fait ses dégâts
-                    return; // Il s'arrête pour ce tour
+                    this.tempsDerniereAttaque = tempsActuel;
                 }
             }
+
         }
         this.deplacer(labyrinthe, personnages);
     }
 
 
-
-
     /**
      * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire
-     * @param labyrinthe le labyrinthe sur lequel le monstre se déplace
+     *
+     * @param labyrinthe  le labyrinthe sur lequel le monstre se déplace
      * @param personnages la liste des persos
      */
     public void deplacer(Labyrinthe labyrinthe, List<Personnage> personnages) {
@@ -71,7 +75,7 @@ public abstract class Monstre extends Personnage {
         int direction = (int) (Math.random() * 4);
 
         //diminution du nombre de deplacement 1 chance sur 6 toute les evolution du jeu
-        if(Math.floor(Math.random() * 2) == 1) {
+        if (Math.floor(Math.random() * 2) == 1) {
             //Deplacement
             switch (direction) {
                 case 0:
@@ -89,11 +93,10 @@ public abstract class Monstre extends Personnage {
             }
         }
 
-        //Le monstre ne traverse pas les murs
-        if (labyrinthe.estTraversable(futurX, futurY)) {
+        //Verification que le Monstre ne traverse pas un personnage
+        if (futurX >= 0 && futurX < labyrinthe.getLargeur() && futurY >= 0 && futurY < labyrinthe.getHauteur()) {
             boolean caseOccupee = false;
 
-            //Verification que le Monstre ne traverse pas un personnage
             for (int i = 0; i < personnages.size(); i++) {
                 Personnage p = personnages.get(i);
                 if (p != this && p.getX() == futurX && p.getY() == futurY) {
@@ -101,9 +104,7 @@ public abstract class Monstre extends Personnage {
                     break;
                 }
             }
-
-            //Deplacement du Monstre si la case n'est ni le bord du laby ni un perso
-            if (!caseOccupee) {
+            if (!caseOccupee && labyrinthe.estTraversable(futurX, futurY)) {
                 this.x = futurX;
                 this.y = futurY;
             }
