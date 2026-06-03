@@ -1,0 +1,45 @@
+@startuml
+participant "jeu : JeuZeldiablo" as Jeu
+participant "labyrinthe : Labyrinthe" as Laby
+participant "grille[i][j] : Case" as Case
+participant "Math" as Math
+
+Jeu -> Laby : new Labyrinthe()
+activate Laby
+
+note right of Laby : Initialisation des bord du labyrinthe
+loop pour chaque i de 0 à largeur-1
+    loop pour chaque j de 0 à hauteur-1
+        alt si bordure (i==0, largeur-1, j==0, hauteur-1)
+            Laby -> Case ** : new Case(true)
+        else sinon
+            Laby -> Case ** : new Case(false)
+        end
+    end
+end
+
+note right of Laby : Zone du millieu , protection des apparition des Persos
+loop pour chaque i de 0 à largeur-1
+    loop pour chaque j de 0 à hauteur-1
+        alt si bordure
+            Laby -> Case ** : new Case(true)
+        else si i,j == départ (Héros, Monstre1, Monstre2)
+            Laby -> Case ** : new Case(false)
+        else sinon
+            Laby -> Math : random()
+            activate Math
+            Math --> Laby : valeur aléatoire
+            deactivate Math
+            
+            alt si valeur aléatoire < probabiliteMur (0.2)
+                Laby -> Case ** : new Case(true)
+            else sinon
+                Laby -> Case ** : new Case(false)
+            end
+        end
+    end
+end
+
+Laby --> Jeu
+deactivate Laby
+@enduml
