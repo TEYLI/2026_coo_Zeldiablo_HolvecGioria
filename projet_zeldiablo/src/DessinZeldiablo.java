@@ -8,6 +8,7 @@ import java.awt.Graphics;
  */
 public class DessinZeldiablo implements DessinJeu {
     //Attribut
+
     private JeuZeldiablo jeu;
     private static final int TAILLE_CASE = 40;
 

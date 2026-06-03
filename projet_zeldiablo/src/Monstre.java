@@ -7,8 +7,10 @@ import java.util.List;
  */
 public abstract class Monstre extends Personnage {
     //Attributs
+
     protected int degats;
     protected long tempsDerniereAttaque;
+
     //Constructeur
 
     /**
@@ -17,7 +19,6 @@ public abstract class Monstre extends Personnage {
      * @param x le x possition
      * @param y y position
      */
-
     public Monstre(int x, int y, int degats) {
         super(x, y);
         this.degats = degats;
@@ -26,6 +27,11 @@ public abstract class Monstre extends Personnage {
 
     //Methodes
 
+    /**
+     * Methode principale de l'action d'un monstre
+     * @param labyrinthe le labyrinthe
+     * @param personnages la liste des personnage en jeu
+     */
     public void agir(Labyrinthe labyrinthe, List<Personnage> personnages) {
         Heros heros = null;
 
@@ -38,8 +44,9 @@ public abstract class Monstre extends Personnage {
             }
         }
 
-        // 2. Vérifier la distance et le temps
+        //Vérifier la distance et le temps
         if (heros != null) {
+            //Distance comparer au joueur(x,y)
             int distanceX = Math.abs(this.x - heros.getX());
             int distanceY = Math.abs(this.y - heros.getY());
 
@@ -104,6 +111,8 @@ public abstract class Monstre extends Personnage {
                     break;
                 }
             }
+
+            //si la case n'est pas occupé
             if (!caseOccupee && labyrinthe.estTraversable(futurX, futurY)) {
                 this.x = futurX;
                 this.y = futurY;

@@ -21,14 +21,15 @@ public class JeuZeldiablo implements Jeu {
      * Constructeur par defaut du jeu
      */
     public JeuZeldiablo() {
+        //init du laby et perso
         this.labyrinthe = new Labyrinthe();
         this.personnages = new ArrayList<>();
 
-        // 1. Initialisation et ajout du héros au centre
+        //Hero au centre
         this.heros = new Heros(10, 10);
         this.personnages.add(this.heros);
 
-        // 2. Ajout des monstres à des positions fixes
+        //Monstres a des positions fixes
         this.personnages.add(new Ogre(2, 2));
         this.personnages.add(new Ogre(10, 5));
 
@@ -36,6 +37,7 @@ public class JeuZeldiablo implements Jeu {
         this.personnages.add(new Fantome(7, 3));
         this.personnages.add(new Fantome(12, 14));
 
+        //Et on fait apparaitre la piece
         this.spawnPiece();
     }
 
@@ -50,6 +52,7 @@ public class JeuZeldiablo implements Jeu {
         //Heros
         this.heros.deplacer(c, this.labyrinthe,this.personnages);
 
+        //piece lors de ramassage
         if(this.heros.getX() == this.piece.getX() && this.heros.getY() == this.piece.getY()){
             this.heros.ramasserPiece();
             this.spawnPiece();
@@ -87,6 +90,7 @@ public class JeuZeldiablo implements Jeu {
      */
     @Override
     public boolean etreFini() {
+        //defaite lors de perte de pv
         if (this.heros.getPointsDeVie() <= 0) {
             System.out.println("GAME OVER - Le héros n'a plus de vie !");
             return true;
@@ -95,6 +99,10 @@ public class JeuZeldiablo implements Jeu {
         return false;
     }
 
+    /**
+     * Methode spawn piece qui permet de faire apparaitre la piece
+     * de manière aleatoire sur les case vide
+     */
     public void spawnPiece() {
         int x = (int) (Math.random() * this.labyrinthe.getLargeur());
         int y = (int) (Math.random() * this.labyrinthe.getLargeur());
@@ -111,7 +119,6 @@ public class JeuZeldiablo implements Jeu {
     public List<Personnage> getPersonnages() {
         return this.personnages;
     }
-
     public Piece getPiece() {
         return this.piece;
     }

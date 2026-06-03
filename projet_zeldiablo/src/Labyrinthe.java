@@ -85,7 +85,6 @@ public class Labyrinthe {
     public int getLargeur() {
         return largeur;
     }
-
     public int getHauteur() {
         return hauteur;
     }

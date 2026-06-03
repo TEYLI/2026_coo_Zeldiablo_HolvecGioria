@@ -7,10 +7,12 @@ import java.util.List;
  */
 public class Heros extends Personnage {
     //Attributs
+
     private int pointsDeVie;
     private int piecesRamassees;
 
     //Constructeur
+
     public Heros(int x, int y) {
         super(x, y);
         this.pointsDeVie = 10;
@@ -18,6 +20,7 @@ public class Heros extends Personnage {
     }
 
     //Methodes
+
     /**
      * Methode deplacer qui permet de deplacer le Hero
      * @param commande commande faite sur clavier
@@ -56,14 +59,17 @@ public class Heros extends Personnage {
     }
 
     /**
-     * Methode subirDegat
-     * @param degats
+     * Methode subirDegat permet au hero de perdre des PV
+     * @param degats le nombre de degat a subir
      */
     public void subirDegats(int degats) {
         this.pointsDeVie -= degats;
         System.out.println("Le héros subit " + degats + " dégâts. PV restants : " + this.pointsDeVie);
     }
 
+    /**
+     * Le hero ramasse une piece et affiche dans la console
+     */
     public void ramasserPiece(){
         this.piecesRamassees++;
         System.out.println("Pièce récupérée ! Compteur total : " + this.piecesRamassees);
