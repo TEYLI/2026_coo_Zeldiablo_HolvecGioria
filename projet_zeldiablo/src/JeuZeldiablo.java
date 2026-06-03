@@ -50,6 +50,11 @@ public class JeuZeldiablo implements Jeu {
         //Heros
         this.heros.deplacer(c, this.labyrinthe,this.personnages);
 
+        if(this.heros.getX() == this.piece.getX() && this.heros.getY() == this.piece.getY()){
+            this.heros.ramasserPiece();
+            this.spawnPiece();
+        }
+
         //Monstres
         for (int i = 0; i < this.personnages.size(); i++) {
             Personnage p = this.personnages.get(i);
@@ -100,5 +105,9 @@ public class JeuZeldiablo implements Jeu {
     public Heros getHeros() { return this.heros; }
     public List<Personnage> getPersonnages() {
         return this.personnages;
+    }
+
+    public Piece getPiece() {
+        return this.piece;
     }
 }

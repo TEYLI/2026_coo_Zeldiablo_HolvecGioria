@@ -70,6 +70,12 @@ public class DessinZeldiablo implements DessinJeu {
             g.fillOval(pixelX, pixelY, TAILLE_CASE, TAILLE_CASE);
 
         }
+        Piece piece = jeu.getPiece();
+        if(piece != null){
+            g.setColor(Color.YELLOW);
+            g.fillOval(piece.getX() * TAILLE_CASE + 10, piece.getY() * TAILLE_CASE + 10, TAILLE_CASE/2, TAILLE_CASE/2);
+        }
+
         g.dispose();
     }
 }
