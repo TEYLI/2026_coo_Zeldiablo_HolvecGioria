@@ -6,9 +6,12 @@ import java.util.List;
  * Classe Heros permet de représenter un personage de Zeldiablo
  */
 public class Heros extends Personnage {
+    //Attributs
+    private int pointsDeVie;
     //Constructeur
     public Heros(int x, int y) {
         super(x, y);
+        this.pointsDeVie = 10;
     }
 
     //Methodes
@@ -47,5 +50,20 @@ public class Heros extends Personnage {
                 this.y = futurY;
             }
         }
+    }
+
+    /**
+     * Methode subirDegat
+     * @param degats
+     */
+    public void subirDegats(int degats) {
+        this.pointsDeVie -= degats;
+        System.out.println("Le héros subit " + degats + " dégâts. PV restants : " + this.pointsDeVie);
+    }
+
+
+    //Methode Getter
+    public int getPointsDeVie() {
+        return this.pointsDeVie;
     }
 }
