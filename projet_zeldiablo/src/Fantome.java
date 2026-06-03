@@ -13,7 +13,7 @@ public class Fantome extends Monstre {
      * @param y le y d'apparition
      */
     public Fantome(int x, int y) {
-        super(x, y);
+        super(x, y,1);
     }
 
     /**

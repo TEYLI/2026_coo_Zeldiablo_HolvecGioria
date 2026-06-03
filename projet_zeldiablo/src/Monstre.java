@@ -6,17 +6,56 @@ import java.util.List;
  * Classe Monstre permet de représenter un personage de Zeldiablo
  */
 public abstract class Monstre extends Personnage {
-
+    //Attributs
+    protected int degats;
+    protected boolean aAttaque;
     //Constructeur
     /**
      * Constructeur a 2 paramettres permet d'initialiser le monstre
      * @param x le x possition
      * @param y y position
      */
-    //Methodes
-    public Monstre(int x, int y) {
+
+    public Monstre(int x, int y,int degats) {
         super(x, y);
+        this.degats = degats;
+        this.aAttaque = false;
     }
+
+    //Methodes
+
+    public void agir(Labyrinthe labyrinthe, List<Personnage> personnages) {
+        Heros heros = null;
+
+        //Trouver Hero
+        for (int i = 0; i < personnages.size(); i++) {
+            Personnage p = personnages.get(i);
+            if (p instanceof Heros) {
+                heros = (Heros) p;
+                break;
+            }
+        }
+
+        if (heros != null) {
+            int distanceX = Math.abs(this.x - heros.getX());
+            int distanceY = Math.abs(this.y - heros.getY());
+
+            // S'ils sont côte à côte
+            if (distanceX + distanceY == 1) {
+
+                // Si le monstre n'a pas encore attaqué
+                if (!this.aAttaque) {
+                    heros.subirDegats(this.degats);
+                    this.aAttaque = true; // Il mémorise qu'il a fait ses dégâts
+                    return; // Il s'arrête pour ce tour
+                }
+            }
+        }
+        this.deplacer(labyrinthe, personnages);
+    }
+
+
+
 
     /**
      * Methode deplacer qui permet de deplacer le Monstre de manière aléatoire
