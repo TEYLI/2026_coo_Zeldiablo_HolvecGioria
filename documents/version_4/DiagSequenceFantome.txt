@@ -1,0 +1,71 @@
+@startuml
+Title Diagramme de Sequence - Méthode deplacer dans Fantome
+participant "jeu : JeuZeldiablo" as Jeu
+participant "f : Fantome" as Fantome
+participant "Math" as Math
+participant "labyrinthe : Labyrinthe" as Laby
+participant "personnages : List" as Liste
+participant "p : Personnage" as Perso
+
+Jeu -> Fantome : deplacer(labyrinthe, personnages)
+activate Fantome
+
+Fantome -> Math : random()
+activate Math
+Math --> Fantome : direction (0 à 3)
+deactivate Math
+
+Fantome -> Math : random()
+activate Math
+Math --> Fantome : probabilité (pour ralentissement)
+deactivate Math
+
+note right of Fantome : Calcul du prochain deplacement futurX et futurY
+
+alt si la probabilité valide le déplacement
+    
+    Fantome -> Laby : getLargeur()
+    activate Laby
+    Laby --> Fantome : largeur
+    deactivate Laby
+
+    Fantome -> Laby : getHauteur()
+    activate Laby
+    Laby --> Fantome : hauteur
+    deactivate Laby
+
+    alt si futurX et futurY sont dans les limites du tableau
+        
+        loop pour i = 0 jusqu'à personnages.size()
+            Fantome -> Liste : size()
+            activate Liste
+            Liste --> Fantome : taille
+            deactivate Liste
+
+            Fantome -> Liste : get(i)
+            activate Liste
+            Liste --> Fantome : p
+            deactivate Liste
+            
+            Fantome -> Perso : getX()
+            activate Perso
+            Perso --> Fantome : x
+            deactivate Perso
+
+            Fantome -> Perso : getY()
+            activate Perso
+            Perso --> Fantome : y
+            deactivate Perso
+
+            note right of Fantome : Vérification de la collision :\nsi p != this ET p.x == futurX ET p.y == futurY
+        end
+
+        alt si !caseOccupee
+            note right of Fantome : Mise à jour des coordonnées\nthis.x = futurX\nthis.y = futurY
+        end
+    end
+end
+
+Fantome --> Jeu : fin de la méthode
+deactivate Fantome
+@enduml
