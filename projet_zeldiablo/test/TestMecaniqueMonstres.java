@@ -10,46 +10,55 @@ public class TestMecaniqueMonstres {
      */
     @Test
     public void testDetectionCaseVide() {
+        //Déclaration
         JeuZeldiablo jeu = new JeuZeldiablo();
 
-        assertFalse(jeu.estCaseVideDePersonnage(5, 5), "La case 5,5 ne doit pas être vide");
-        assertFalse(jeu.estCaseVideDePersonnage(2, 2), "La case 2,2 ne doit pas être vide");
+        //Tests
+        assertFalse(jeu.estCaseVideDePersonnage(10, 10), "La case du héros ne doit pas être vide");
+        assertFalse(jeu.estCaseVideDePersonnage(2, 2), "La case de l'ogre ne doit pas être vide");
+        assertFalse(jeu.estCaseVideDePersonnage(7, 3), "La case du fantome ne doit pas être vide");
 
         assertTrue(jeu.estCaseVideDePersonnage(1, 1), "La case 1,1 doit être détectée comme vide");
     }
 
     /**
-     * Test si le monstre bouge au départ du programme
+     * Test si l'ogre ne sort pas du labyrinthe
      */
     @Test
-    public void testRalentissementMonstre() {
+    public void testOgreResteDansLabyrinthe() {
+        //Déclaration
         Labyrinthe laby = new Labyrinthe();
-        Monstre monstre = new Monstre(5, 5);
+        Ogre ogre = new Ogre(1, 1);
+
         List<Personnage> persos = new ArrayList<>();
-        persos.add(monstre);
-
-        monstre.deplacer(laby, persos);
-
-        assertEquals(5, monstre.getX(), "Le monstre ne doit pas bouger au premier tour");
-        assertEquals(5, monstre.getY());
+        persos.add(ogre);
+        //Execution
+        for (int i = 0; i < 100; i++) {
+            ogre.deplacer(laby, persos);
+        }
+        //Tests
+        assertTrue(ogre.getX() >= 1 && ogre.getX() < laby.getLargeur() - 1, "L'Ogre ne doit pas traverser les murs verticaux");
+        assertTrue(ogre.getY() >= 1 && ogre.getY() < laby.getHauteur() - 1, "L'Ogre ne doit pas traverser les murs horizontaux");
     }
 
     /**
-     * Test si le monstre ne traverse pas les murs
+     * Test si le fantome ne sort pas du labyrinthe
      */
     @Test
-    public void testMonstreResteDansLabyrinthe() {
+    public void testFantomeResteDansLesLimites() {
+        //Déclaration
         Labyrinthe laby = new Labyrinthe();
+        Fantome fantome = new Fantome(1, 1);
 
-        Monstre monstre = new Monstre(1, 1);
         List<Personnage> persos = new ArrayList<>();
-        persos.add(monstre);
-
-        for (int i = 0; i < 50; i++) {
-            monstre.deplacer(laby, persos);
+        persos.add(fantome);
+        //Execution
+        for (int i = 0; i < 200; i++) {
+            fantome.deplacer(laby, persos);
         }
-
-        assertTrue(monstre.getX() >= 1 && monstre.getX() < laby.getLargeur() - 1, "Le monstre ne doit pas traverser les murs verticaux");
-        assertTrue(monstre.getY() >= 1 && monstre.getY() < laby.getHauteur() - 1, "Le monstre ne doit pas traverser les murs horizontaux");
+        //Tests
+        assertTrue(fantome.getX() >= 0 && fantome.getX() < laby.getLargeur(), "Le Fantôme ne doit pas sortir de la carte en X");
+        assertTrue(fantome.getY() >= 0 && fantome.getY() < laby.getHauteur(), "Le Fantôme ne doit pas sortir de la carte en Y");
     }
+
 }

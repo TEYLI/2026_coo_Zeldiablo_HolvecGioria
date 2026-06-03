@@ -15,8 +15,8 @@ public class TestLabyrinthe {
         Labyrinthe laby = new Labyrinthe();
 
         //Tests
-        assertEquals(10, laby.getLargeur(), "La largeur doit être de 10");
-        assertEquals(10, laby.getHauteur(), "La hauteur doit être de 10");
+        assertEquals(20, laby.getLargeur(), "La largeur doit être de 20");
+        assertEquals(20, laby.getHauteur(), "La hauteur doit être de 20");
     }
 
     /**
@@ -29,22 +29,24 @@ public class TestLabyrinthe {
 
         //Tests
         assertFalse(laby.estTraversable(0, 0), "Le coin haut-gauche doit être un mur");
-        assertFalse(laby.estTraversable(9, 9), "Le coin bas-droite doit être un mur");
+        assertFalse(laby.estTraversable(19, 19), "Le coin bas-droite doit être un mur");
 
         assertFalse(laby.estTraversable(5, 0), "Le bord supérieur doit être un mur");
         assertFalse(laby.estTraversable(0, 5), "Le bord gauche doit être un mur");
     }
 
     /**
-     * Test verifie le centre est bien vide
+     * Test qui vérifie que les cases des personnages soit bein vides au départ
      */
     @Test
-    public void testCentreEstVide() {
-        //Declaration
+    public void testCasesProtegeesSontVides() {
+        //Déclaration
         Labyrinthe laby = new Labyrinthe();
 
         //Tests
-        assertTrue(laby.estTraversable(5, 5), "Le centre du labyrinthe doit être traversable");
-        assertTrue(laby.estTraversable(1, 1), "La case juste après le coin haut-gauche doit être vide");
+        assertTrue(laby.estTraversable(5, 5), "La case de départ Héros doit être traversable");
+        assertTrue(laby.estTraversable(2, 2), "La case de départ Monstre 1 doit être traversable");
+        assertTrue(laby.estTraversable(15, 15), "La case de départ Monstre 2 doit être traversable");
     }
+
 }

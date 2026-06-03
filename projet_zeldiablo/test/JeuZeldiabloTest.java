@@ -19,6 +19,7 @@ public class JeuZeldiabloTest {
         assertNotNull(jeu.getLabyrinthe(), "Le labyrinthe doit être initialisé");
         assertNotNull(jeu.getHeros(), "Le héros doit être initialisé");
         assertFalse(jeu.etreFini(), "Le jeu ne doit pas être fini au démarrage");
+        assertTrue(jeu.getPersonnages().size() > 1, "La liste doit contenir le héros et les monstres");
     }
 
     /**
@@ -30,12 +31,15 @@ public class JeuZeldiabloTest {
         JeuZeldiablo jeu = new JeuZeldiablo();
         Commande cmd = new Commande();
 
+        int startX = jeu.getHeros().getX();
+        int startY = jeu.getHeros().getY();
+
         //Execution
         cmd.haut = true;
         jeu.evoluer(cmd);
 
         //Tests
-        assertEquals(5, jeu.getHeros().getX());
-        assertEquals(4, jeu.getHeros().getY(), "Le héros a dû monter suite à l'évolution du jeu");
+        assertEquals(startX, jeu.getHeros().getX());
+        assertEquals(startY - 1, jeu.getHeros().getY(), "Le héros a dû monter suite à l'évolution du jeu");
     }
 }

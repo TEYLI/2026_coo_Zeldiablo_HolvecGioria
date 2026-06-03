@@ -30,6 +30,6 @@ Aujourd'hui, nous avons transformer totalement le gestionnaire de personnages , 
 Pour que les fantommes soit fonctionnel nous avons agrandis le labyrinthe et mis en place une boucle pour génerer des murs au millieu du labyrinthe.
 Problème : l'apparitions des murs du millieu peut bloqué des monstres mais très rarement le personnage. Car nous avons implémenter un systeme de deplacement en diagonal du Hero type jeu de dame(QZ / QS / SD / ZD).
 - Quelles fonctionnalités est validée ?
-Les fonctionnalionnalité sont validés.
+Les fonctionnalité sont validés.
 
 

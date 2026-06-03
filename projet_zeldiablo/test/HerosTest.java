@@ -34,6 +34,7 @@ public class HerosTest {
         Heros heros = new Heros(5, 5);
         List<Personnage> persos = new ArrayList<>();
         Commande cmd = new Commande();
+        persos.add(heros);
 
         //Execution
         cmd.droite = true;
@@ -54,6 +55,7 @@ public class HerosTest {
         Heros heros = new Heros(1, 5);
         List<Personnage> persos = new ArrayList<>();
         Commande cmd = new Commande();
+        persos.add(heros);
 
         //Execution
         cmd.gauche = true;

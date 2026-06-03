@@ -14,11 +14,11 @@ public class TestCollisionPersonnages {
         //Déclaration
         Labyrinthe laby = new Labyrinthe();
         Heros heros = new Heros(5, 5);
-        Monstre monstreLoin = new Monstre(8, 8);
+        Ogre ogreLoin = new Ogre(8, 8);
 
         List<Personnage> persos = new ArrayList<>();
         persos.add(heros);
-        persos.add(monstreLoin);
+        persos.add(ogreLoin);
 
         Commande cmd = new Commande();
         cmd.droite = true;
@@ -27,7 +27,7 @@ public class TestCollisionPersonnages {
         heros.deplacer(cmd, laby, persos);
 
         //Test
-        assertEquals(6, heros.getX(), "Le héros doit avancer si la case est vide (Critère 2)");
+        assertEquals(6, heros.getX(), "Le héros doit avancer si la case est vide");
         assertEquals(5, heros.getY());
     }
 
@@ -39,11 +39,11 @@ public class TestCollisionPersonnages {
         //Déclaration
         Labyrinthe laby = new Labyrinthe();
         Heros heros = new Heros(5, 5);
-        Monstre monstre = new Monstre(6, 5);
+        Ogre ogre = new Ogre(6, 5);
 
         List<Personnage> persos = new ArrayList<>();
         persos.add(heros);
-        persos.add(monstre);
+        persos.add(ogre);
 
         Commande cmd = new Commande();
         cmd.droite = true;
@@ -52,7 +52,7 @@ public class TestCollisionPersonnages {
         heros.deplacer(cmd, laby, persos);
 
         //Test
-        assertEquals(5, heros.getX(), "Le héros doit être bloqué par le monstre (Critère 1)");
+        assertEquals(5, heros.getX(), "Le héros doit être bloqué par le monstre");
         assertEquals(5, heros.getY());
     }
 }
