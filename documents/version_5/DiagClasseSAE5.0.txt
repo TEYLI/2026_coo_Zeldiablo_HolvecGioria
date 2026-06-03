@@ -118,4 +118,4 @@ JeuZeldiablo "1" --> "1" Heros : - heros : Heros
 Fantomes -up-|> Monstre
 Ogres -up-|> Monstre
 
-JeuZeldiablo --> Piece : -piece : Piece
+JeuZeldiablo "1" --> "1" Piece : -piece : Piece
