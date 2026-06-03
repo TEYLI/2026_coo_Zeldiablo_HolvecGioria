@@ -18,7 +18,7 @@
     - critère 1 La piece apparait immobile dans le labyrinthe atteignable par le joueur.
     - critère 2 Quand le joueur est dans la meme case que la piece la piece disparait et apparait a un autre endroit atteignable.
     - critère 3 Apres la recupération le compteur dans la console est incrementé.
-  - responsables : Jules
+  - responsables : Jules , Ange
 	- Piece : Jules
 	- ramasserPiece() : Jules
 	- spawnPiece() : Jules
