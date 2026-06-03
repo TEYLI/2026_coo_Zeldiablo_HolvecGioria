@@ -54,7 +54,7 @@ public class JeuZeldiablo implements Jeu {
         for (int i = 0; i < this.personnages.size(); i++) {
             Personnage p = this.personnages.get(i);
             if (p instanceof Monstre) {
-                ((Monstre) p).deplacer(this.labyrinthe,this.personnages);
+                ((Monstre) p).agir(this.labyrinthe, this.personnages);
             }
         }
 
