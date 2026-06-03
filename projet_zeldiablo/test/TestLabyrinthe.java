@@ -15,8 +15,8 @@ public class TestLabyrinthe {
         Labyrinthe laby = new Labyrinthe();
 
         //Tests
-        assertEquals(20, laby.getLargeur(), "La largeur doit être de 20");
-        assertEquals(20, laby.getHauteur(), "La hauteur doit être de 20");
+        assertEquals(15, laby.getLargeur(), "La largeur doit être de 20");
+        assertEquals(15, laby.getHauteur(), "La hauteur doit être de 20");
     }
 
     /**
@@ -44,9 +44,9 @@ public class TestLabyrinthe {
         Labyrinthe laby = new Labyrinthe();
 
         //Tests
-        assertTrue(laby.estTraversable(5, 5), "La case de départ Héros doit être traversable");
+        assertTrue(laby.estTraversable(10, 10), "La case de départ Héros doit être traversable");
         assertTrue(laby.estTraversable(2, 2), "La case de départ Monstre 1 doit être traversable");
-        assertTrue(laby.estTraversable(15, 15), "La case de départ Monstre 2 doit être traversable");
+        assertTrue(laby.estTraversable(10, 5), "La case de départ Monstre 2 doit être traversable");
     }
 
 }

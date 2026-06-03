@@ -32,12 +32,12 @@ public class Labyrinthe {
 
         //Generation de la partie du millieu
         //Recupération des point d'apparition des Perso
-        int departHerosX = 5;
-        int departHerosY = 5;
+        int departHerosX = 10;
+        int departHerosY = 10;
         int departMonstre1X = 2;
         int departMonstre1Y = 2;
-        int departMonstre2X = 15;
-        int departMonstre2Y = 15;
+        int departMonstre2X = 10;
+        int departMonstre2Y = 5;
         //La proba d'apparition d'un mur
         double probabiliteMur = 0.2;
 
