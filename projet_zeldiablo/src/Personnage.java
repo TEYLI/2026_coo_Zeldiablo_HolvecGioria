@@ -1,5 +1,5 @@
 /**
- * Interface Personnage permet de représenter un personnage
+ * Classe Personnage permet de représenter un personnage
  */
 public abstract class Personnage {
     //Attribut

@@ -7,12 +7,12 @@ public class Labyrinthe {
     private int largeur;
     private int hauteur;
 
-    //Constructeur
-
+    //Constructeur de laby
     /**
      *  Constructeur par default
      */
     public Labyrinthe() {
+        //Selection de la taille du laby
         this.largeur = 20;
         this.hauteur = 20;
         this.grille = new Case[largeur][hauteur];
@@ -29,25 +29,34 @@ public class Labyrinthe {
             }
         }
 
+
+        //Generation de la partie du millieu
+        //Recupération des point d'apparition des Perso
         int departHerosX = 5;
         int departHerosY = 5;
         int departMonstre1X = 2;
         int departMonstre1Y = 2;
         int departMonstre2X = 15;
         int departMonstre2Y = 15;
+        //La proba d'apparition d'un mur
         double probabiliteMur = 0.2;
 
+        //Boucle principal qui parcour le labyrinthe de largeur et hauteur imbriqué
         for(int i = 0; i < largeur; i++){
             for(int j = 0; j < hauteur; j++){
+
+                //Empeché de bloqué les Perso
                 if(i == 0 || i == largeur - 1 || j == 0 || j == hauteur - 1){
-                    grille[i][j] = new Case(true);
+                    grille[i][j] = new Case(true); //mur
                 } else if (i == departHerosX && j == departHerosY) {
-                    grille[i][j] = new Case(false);
+                    grille[i][j] = new Case(false); //vide
                 } else if (i == departMonstre1X && j == departMonstre1Y) {
-                    grille[i][j] = new Case(false);
+                    grille[i][j] = new Case(false); //vide
                 } else if (i == departMonstre2X && j == departMonstre2Y) {
-                    grille[i][j] = new Case(false);
+                    grille[i][j] = new Case(false); //vide
                 } else {
+
+                    //génération en dehord des point d'apparition des perso
                     if (Math.random() < probabiliteMur) {
                         grille[i][j] = new Case(true);
                     }  else {
