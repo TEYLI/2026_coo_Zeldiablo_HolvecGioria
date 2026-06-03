@@ -13,6 +13,7 @@ public class JeuZeldiablo implements Jeu {
     private Labyrinthe labyrinthe;
     private Heros heros;
     private List<Personnage> personnages;
+    private Piece piece;
 
     //Constructeur
 
@@ -34,6 +35,8 @@ public class JeuZeldiablo implements Jeu {
         // On place des Fantômes
         this.personnages.add(new Fantome(7, 3));
         this.personnages.add(new Fantome(12, 14));
+
+        this.spawnPiece();
     }
 
     //Methodes
@@ -80,6 +83,16 @@ public class JeuZeldiablo implements Jeu {
     @Override
     public boolean etreFini() {
         return false;
+    }
+
+    public void spawnPiece() {
+        int x = (int) (Math.random() * this.labyrinthe.getLargeur());
+        int y = (int) (Math.random() * this.labyrinthe.getLargeur());
+        while (!this.labyrinthe.estTraversable(x, y) || !estCaseVideDePersonnage(x, y)) {
+            x = (int)  (Math.random() * this.labyrinthe.getLargeur());
+            y = (int)  (Math.random() * this.labyrinthe.getLargeur());
+        }
+        this.piece = new Piece(x, y);
     }
 
     //Methodes getter

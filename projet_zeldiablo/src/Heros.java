@@ -8,10 +8,13 @@ import java.util.List;
 public class Heros extends Personnage {
     //Attributs
     private int pointsDeVie;
+    private int piecesRamassees;
+
     //Constructeur
     public Heros(int x, int y) {
         super(x, y);
         this.pointsDeVie = 10;
+        this.piecesRamassees = 0;
     }
 
     //Methodes
@@ -61,9 +64,19 @@ public class Heros extends Personnage {
         System.out.println("Le héros subit " + degats + " dégâts. PV restants : " + this.pointsDeVie);
     }
 
+    public void ramasserPiece(){
+        this.piecesRamassees++;
+        System.out.println("Pièce récupérée ! Compteur total : " + this.piecesRamassees);
+    }
+
 
     //Methode Getter
     public int getPointsDeVie() {
         return this.pointsDeVie;
     }
+
+    public int getPiecesRamassees() {
+        return this.piecesRamassees;
+    }
+
 }
