@@ -1,4 +1,5 @@
 @startuml
+Title Diagramme de Sequence - Constructeur du labyrinthe
 participant "jeu : JeuZeldiablo" as Jeu
 participant "labyrinthe : Labyrinthe" as Laby
 participant "grille[i][j] : Case" as Case
