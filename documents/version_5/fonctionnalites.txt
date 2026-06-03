@@ -17,11 +17,7 @@
     - critère 2 Quand le joueur est dans la meme case que la piece la piece disparait et apparait a un autre endroit atteignable.
     - critère 3 Apres la recupération le compteur dans la console est incrementé.
   - responsables : Ange, Jules
-	- Personnage : Ange 
-	- Ogre : Ange
-	- Fantome + deplacer() : Ange
-	- Monstre + deplacer() : Ange
-	- TestMecaniqueMonstre : Jules
+	- 
 
 - fonctionnalité 3 (personnalisée): Plus le temps passe plus les monstre sont puissant.
   - descriptif texte : un système de gestionnaire de temps plus le temps passe plus la proba de deplacement des monstre augmente.
